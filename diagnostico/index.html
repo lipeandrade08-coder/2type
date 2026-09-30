@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico Digital Gratuito | 2Type</title>
+  <meta name="description"
+    content="Descubra os pontos fracos da sua presença digital com nossa IA especialista. Diagnóstico gratuito em minutos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07070e;
+      --bg2: #0f0f1a;
+      --bg3: #16162a;
+      --bg4: #1e1e38;
+      --border: rgba(168, 85, 247, 0.18);
+      --border2: rgba(255, 255, 255, 0.06);
+      --purple: #A855F7;
+      --purple-dim: #7C3AED;
+      --purple-soft: rgba(168, 85, 247, 0.12);
+      --purple-glow: rgba(168, 85, 247, 0.3);
+      --cyan: #22D3EE;
+      --green: #4ADE80;
+      --red: #F87171;
+      --yellow: #FBBF24;
+      --text: #f0f0fa;
+      --muted: #8892a4;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bg-canvas::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 10%, rgba(120, 40, 220, 0.22) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 90%, rgba(34, 211, 238, 0.1) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(236, 72, 153, 0.06) 0%, transparent 60%);
+    }
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+
+    .page {
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page.active {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* INTRO */
+    #page-intro {
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .intro-wrap {
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .intro-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      animation: fadeDown .6s var(--ease) both;
+    }
+
+    .intro-logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--purple);
+      box-shadow: 0 0 14px var(--purple);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(.8)
+      }
+    }
+
+    .intro-logo-text {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .intro-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple-soft);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--purple);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeDown .6s .1s var(--ease) both;
+    }
+
+    .intro-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+      animation: pulse 1.5s infinite;
+    }
+
+    .intro-h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+      animation: fadeDown .6s .2s var(--ease) both;
+    }
+
+    .grad {
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #22D3EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .intro-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      animation: fadeDown .6s .3s var(--ease) both;
+    }
+
+    .intro-stats {
+      display: flex;
+      margin-bottom: 44px;
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg2);
+      animation: fadeDown .6s .4s var(--ease) both;
+    }
+
+    .intro-stat {
+      flex: 1;
+      padding: 20px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border2);
+    }
+
+    .intro-stat:last-child {
+      border-right: none;
+    }
+
+    .intro-stat-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--purple);
+      display: block;
+    }
+
+    .intro-stat-lbl {
+      font-size: .75rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
+      display: block;
+    }
+
+    .intro-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 40px;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s var(--bounce);
+      box-shadow: 0 0 40px var(--purple-glow);
+      animation: fadeDown .6s .5s var(--ease) both;
+    }
+
+    .intro-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 60px var(--purple-glow);
+    }
+
+    .intro-disc {
+      margin-top: 16px;
+      font-size: .78rem;
+      color: var(--muted);
+      animation: fadeDown .6s .6s var(--ease) both;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* QUIZ */
+    #page-quiz {
+      padding: 0;
+    }
+
+    .quiz-layout {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      gap: 28px;
+    }
+
+    .quiz-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .quiz-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .quiz-brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+    }
+
+    .quiz-progress-wrap {
+      flex: 1;
+    }
+
+    .quiz-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      justify-content: center;
+    }
+
+    .qdot {
+      width: 28px;
+      height: 4px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, .1);
+      transition: all .4s var(--ease);
+    }
+
+    .qdot.done {
+      background: var(--purple);
+    }
+
+    .qdot.active {
+      background: linear-gradient(90deg, var(--purple), var(--cyan));
+      width: 44px;
+    }
+
+    .qdot-lbl {
+      text-align: center;
+      font-size: .72rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .05em;
+    }
+
+    .quiz-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      animation: cardIn .4s var(--bounce) both;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+      }
+    }
+
+    .q-eyebrow {
+      font-size: .72rem;
+      color: var(--purple);
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-eyebrow::before {
+      content: '';
+      width: 18px;
+      height: 2px;
+      background: var(--purple);
+      border-radius: 100px;
+    }
+
+    .q-text {
+      font-size: clamp(1.15rem, 3vw, 1.45rem);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 32px;
+    }
+
+    .opts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .opt-card {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      cursor: pointer;
+      transition: all .22s var(--ease);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-family: inherit;
+      text-align: left;
+      color: var(--text);
+    }
+
+    .opt-card:hover {
+      border-color: var(--purple);
+      background: var(--purple-soft);
+      transform: translateY(-2px);
+    }
+
+    .opt-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--bg4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+
+    .opt-card:hover .opt-icon {
+      background: rgba(168, 85, 247, .2);
+    }
+
+    .opt-body {
+      flex: 1;
+    }
+
+    .opt-label {
+      font-size: .95rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .opt-sub {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .text-q-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .text-q-sub {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .text-q-input {
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+    }
+
+    .text-q-input::placeholder {
+      color: var(--muted);
+    }
+
+    .text-q-input:focus {
+      border-color: var(--purple);
+    }
+
+    .text-q-btn {
+      background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+      border: none;
+      border-radius: 14px;
+      padding: 16px 32px;
+      color: #fff;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      align-self: flex-end;
+      transition: all .2s var(--bounce);
+    }
+
+    .text-q-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--purple-glow);
+    }
+
+    /* LOADING */
+    #page-loading {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      gap: 28px;
+    }
+
+    .loading-ring {
+      width: 90px;
+      height: 90px;
+      border: 3px solid var(--border);
+      border-top-color: var(--purple);
+      border-right-color: var(--cyan);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .loading-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .loading-sub {
+      color: var(--muted);
+      font-size: .95rem;
+      max-width: 360px;
+      line-height: 1.6;
+    }
+
+    .loading-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 340px;
+      width: 100%;
+    }
+
+    .ls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: all .4s;
+      opacity: .4;
+    }
+
+    .ls.active {
+      opacity: 1;
+      color: var(--text);
+      border-color: var(--purple);
+    }
+
+    .ls.done {
+      opacity: 1;
+      color: var(--text);
+    }
+
+    .ls-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      background: var(--bg3);
+    }
+
+    .ls-icon.running {
+      background: var(--purple-soft);
+      animation: pulse 1s infinite;
+    }
+
+    .ls-icon.complete {
+      background: rgba(74, 222, 128, .2);
+      color: var(--green);
+    }
+
+    /* REPORT */
+    #page-report {
+      padding: 0;
+    }
+
+    .report-wrap {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .report-hero {
+      text-align: center;
+      animation: fadeUp .5s var(--ease) both;
+    }
+
+    .rh-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74, 222, 128, .1);
+      border: 1px solid rgba(74, 222, 128, .25);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 20px;
+    }
+
+    .report-hero h1 {
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      letter-spacing: -.02em;
+    }
+
+    .report-hero p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .score-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 24px;
+      align-items: center;
+      animation: fadeUp .5s .1s var(--ease) both;
+    }
+
+    .score-gauge-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .score-gauge {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+
+    .score-gauge svg {
+      transform: rotate(-90deg);
+    }
+
+    .gauge-bg {
+      fill: none;
+      stroke: var(--bg3);
+      stroke-width: 10;
+    }
+
+    .gauge-fill {
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.5s var(--ease);
+    }
+
+    .gauge-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gauge-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .gauge-max {
+      font-size: .72rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .score-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .pill-red {
+      background: rgba(248, 113, 113, .12);
+      color: var(--red);
+    }
+
+    .pill-yellow {
+      background: rgba(251, 191, 36, .12);
+      color: var(--yellow);
+    }
+
+    .pill-green {
+      background: rgba(74, 222, 128, .12);
+      color: var(--green);
+    }
+
+    .score-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ss-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .ss-text {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bar-lbl {
+      font-size: .8rem;
+      color: var(--muted);
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 5px;
+      background: var(--bg3);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      width: 0%;
+      transition: width 1.2s var(--ease);
+    }
+
+    .bar-val {
+      font-size: .78rem;
+      font-weight: 700;
+      width: 32px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-divider .line {
+      flex: 1;
+      height: 1px;
+      background: var(--border2);
+    }
+
+    .section-divider span {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    .diag-section {
+      animation: fadeUp .5s .2s var(--ease) both;
+    }
+
+    .diag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .diag-card {
+      background: var(--bg2);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid transparent;
+      transition: transform .22s var(--ease), box-shadow .22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diag-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .diag-card.cr {
+      border-color: rgba(248, 113, 113, .15);
+    }
+
+    .diag-card.cr::before {
+      background: linear-gradient(90deg, #F87171, #ef4444);
+    }
+
+    .diag-card.cy {
+      border-color: rgba(251, 191, 36, .15);
+    }
+
+    .diag-card.cy::before {
+      background: linear-gradient(90deg, #FBBF24, #f59e0b);
+    }
+
+    .diag-card.cg {
+      border-color: rgba(74, 222, 128, .15);
+    }
+
+    .diag-card.cg::before {
+      background: linear-gradient(90deg, #4ADE80, #22c55e);
+    }
+
+    .diag-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+    }
+
+    .dc-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dc-icon {
+      font-size: 1.5rem;
+    }
+
+    .dc-badge {
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .br {
+      background: rgba(248, 113, 113, .12);
+      color: var(--red);
+    }
+
+    .by {
+      background: rgba(251, 191, 36, .12);
+      color: var(--yellow);
+    }
+
+    .bg- {
+      background: rgba(74, 222, 128, .12);
+      color: var(--green);
+    }
+
+    .dc-title {
+      font-size: .95rem;
+      font-weight: 700;
+    }
+
+    .dc-desc {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .dc-action {
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 10px;
+      margin-top: auto;
+    }
+
+    .dc-action.ur {
+      background: rgba(248, 113, 113, .08);
+      color: var(--red);
+    }
+
+    .dc-action.wa {
+      background: rgba(251, 191, 36, .08);
+      color: var(--yellow);
+    }
+
+    .dc-action.ok {
+      background: rgba(74, 222, 128, .08);
+      color: var(--green);
+    }
+
+    .ai-block {
+      background: var(--bg2);
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .5s .3s var(--ease) both;
+    }
+
+    .ai-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--purple), var(--cyan));
+    }
+
+    .ai-block-hdr {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .ai-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .ai-title {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .ai-sub {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .ai-text {
+      font-size: .93rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .ai-text p+p {
+      margin-top: 14px;
+    }
+
+    .prio-block {
+      background: var(--bg2);
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      animation: fadeUp .5s .4s var(--ease) both;
+    }
+
+    .prio-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .prio-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--bg3);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid var(--border2);
+      transition: border-color .2s;
+    }
+
+    .prio-item:hover {
+      border-color: var(--border);
+    }
+
+    .prio-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .p1 {
+      background: linear-gradient(135deg, #ef4444, #F87171);
+    }
+
+    .p2 {
+      background: linear-gradient(135deg, #f59e0b, #FBBF24);
+    }
+
+    .p3 {
+      background: linear-gradient(135deg, #7C3AED, #A855F7);
+    }
+
+    .prio-content {
+      flex: 1;
+    }
+
+    .prio-title {
+      font-size: .93rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .prio-desc {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .prio-impact {
+      font-size: .72rem;
+      font-weight: 700;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--purple);
+    }
+
+    .cta-block {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg2);
+      border-radius: 28px;
+      padding: 48px 40px;
+      text-align: center;
+      border: 1px solid rgba(168, 85, 247, .25);
+      animation: fadeUp .5s .5s var(--ease) both;
+    }
+
+    .cta-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(120, 40, 220, .2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--purple-soft);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 16px;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 20px;
+    }
+
+    .cta-block h2 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 14px;
+    }
+
+    .cta-block p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.65;
+      max-width: 500px;
+      margin: 0 auto 28px;
+    }
+
+    .cta-urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 28px;
+      background: rgba(248, 113, 113, .08);
+      border: 1px solid rgba(248, 113, 113, .2);
+      border-radius: 12px;
+      padding: 10px 20px;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+      color: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 18px 36px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .25s var(--bounce);
+      box-shadow: 0 0 40px var(--purple-glow);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 60px var(--purple-glow);
+    }
+
+    .btn-sec {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 18px 30px;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s var(--ease);
+    }
+
+    .btn-sec:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+
+    .social-proof {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .sp-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .sp-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--muted);
+    }
+
+    .report-footer {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--muted);
+      padding-top: 8px;
+    }
+
+    /* FREE STRATEGY BLOCK */
+    .gift-block {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg2);
+      border-radius: 24px;
+      padding: 0;
+      border: 1px solid rgba(168, 85, 247, .3);
+      animation: fadeUp .5s .45s var(--ease) both;
+    }
+
+    .gift-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(168, 85, 247, .12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .gift-header {
+      padding: 28px 32px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .gift-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ec4899, #A855F7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 24px rgba(236, 72, 153, .35);
+    }
+
+    .gift-header-text {
+      flex: 1;
+    }
+
+    .gift-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(236, 72, 153, .12);
+      border: 1px solid rgba(236, 72, 153, .25);
+      border-radius: 100px;
+      padding: 3px 12px;
+      font-size: .7rem;
+      font-weight: 700;
+      color: #ec4899;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 6px;
+    }
+
+    .gift-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .gift-sub {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .gift-divider {
+      height: 1px;
+      background: var(--border2);
+      margin: 24px 32px;
+    }
+
+    .gift-content {
+      padding: 0 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .gift-section-title {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gift-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border2);
+    }
+
+    .gift-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .gift-post {
+      background: var(--bg3);
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border2);
+      transition: border-color .2s;
+    }
+
+    .gift-post:hover {
+      border-color: rgba(168, 85, 247, .3);
+    }
+
+    .gift-post-num {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    .gift-post-text {
+      font-size: .85rem;
+      color: var(--text);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .gift-post-hook {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .gift-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .gift-tip {
+      background: var(--bg3);
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid var(--border2);
+      transition: border-color .2s;
+    }
+
+    .gift-tip:hover {
+      border-color: rgba(168, 85, 247, .3);
+    }
+
+    .gift-tip-label {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .gift-tip-text {
+      font-size: .85rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .gift-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: rgba(168, 85, 247, .06);
+      border-top: 1px solid var(--border2);
+      padding: 18px 32px;
+    }
+
+    .gift-footer-note {
+      font-size: .8rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gift-footer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #ec4899, #A855F7);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s var(--bounce);
+      white-space: nowrap;
+    }
+
+    .gift-footer-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(168, 85, 247, .4);
+    }
+
+    .gift-loading {
+      padding: 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .gift-loading-ring {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--border);
+      border-top-color: var(--purple);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @media(max-width:580px) {
+      .gift-row {
+        grid-template-columns: 1fr;
+      }
+
+      .gift-header {
+        padding: 22px 22px 0;
+      }
+
+      .gift-content {
+        padding: 0 22px 22px;
+      }
+
+      .gift-footer {
+        padding: 14px 22px;
+      }
+    }
+
+    .report-footer a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media(max-width:580px) {
+      .score-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:540px) {
+      .quiz-card {
+        padding: 28px 22px;
+      }
+
+      .opts-grid,
+      .diag-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-block {
+        padding: 32px 24px;
+      }
+
+      .cta-btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .intro-stats {
+        flex-direction: column;
+      }
+
+      .intro-stat {
+        border-right: none;
+        border-bottom: 1px solid var(--border2);
+      }
+
+      .intro-stat:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-canvas">
+    <div class="bg-grid"></div>
+  </div>
+
+  <div id="page-intro" class="page active">
+    <div class="intro-wrap" style="position:relative;z-index:1;margin:auto;">
+      <div class="intro-logo">
+        <div class="intro-logo-dot"></div><span class="intro-logo-text">2Type · IA Diagnóstica</span>
+      </div>
+      <div class="intro-badge">
+        <div class="intro-badge-dot"></div>Análise gratuita com inteligência artificial
+      </div>
+      <h1 class="intro-h1">Sua empresa está<br />perdendo clientes<br /><span class="grad">toda semana online?</span>
+      </h1>
+      <p class="intro-sub">Nossa IA analisa a presença digital do seu negócio em 3 minutos e entrega um relatório com os
+        pontos críticos que estão te custando dinheiro agora.</p>
+      <div class="intro-stats">
+        <div class="intro-stat"><span class="intro-stat-num" id="c1">0</span><span class="intro-stat-lbl">Empresas
+            analisadas</span></div>
+        <div class="intro-stat"><span class="intro-stat-num" id="c2">0</span><span class="intro-stat-lbl">% de
+            satisfação</span></div>
+        <div class="intro-stat"><span class="intro-stat-num" id="c3">0</span><span class="intro-stat-lbl">min de
+            diagnóstico</span></div>
+      </div>
+      <button class="intro-cta" onclick="startQuiz()">Quero meu diagnóstico gratuito →</button>
+      <p class="intro-disc">🔒 Seus dados são usados apenas para gerar o diagnóstico.</p>
+    </div>
+  </div>
+
+  <div id="page-quiz" class="page">
+    <div class="quiz-layout">
+      <div class="quiz-topbar">
+        <div class="quiz-brand">
+          <div class="quiz-brand-dot"></div>2Type IA
+        </div>
+        <div class="quiz-progress-wrap">
+          <div class="quiz-dots" id="quiz-dots"></div>
+          <div class="qdot-lbl" id="qdot-lbl">Pergunta 1 de 9</div>
+        </div>
+      </div>
+      <div id="quiz-area"></div>
+    </div>
+  </div>
+
+  <div id="page-loading" class="page">
+    <div class="loading-ring"></div>
+    <div class="loading-title">Analisando sua empresa...</div>
+    <div class="loading-sub">Nossa IA está processando suas respostas e gerando um diagnóstico personalizado.</div>
+    <div class="loading-steps">
+      <div class="ls" id="ls1">
+        <div class="ls-icon" id="ls1i">⏳</div>Coletando dados de presença digital
+      </div>
+      <div class="ls" id="ls2">
+        <div class="ls-icon" id="ls2i">⏳</div>Analisando perfil do Instagram e site
+      </div>
+      <div class="ls" id="ls3">
+        <div class="ls-icon" id="ls3i">⏳</div>Identificando pontos críticos
+      </div>
+      <div class="ls" id="ls4">
+        <div class="ls-icon" id="ls4i">⏳</div>Calculando score de posicionamento
+      </div>
+      <div class="ls" id="ls5">
+        <div class="ls-icon" id="ls5i">⏳</div>Gerando análise com IA Gemini
+      </div>
+      <div class="ls" id="ls6">
+        <div class="ls-icon" id="ls6i">⏳</div>Preparando relatório personalizado
+      </div>
+    </div>
+  </div>
+
+  <div id="page-report" class="page">
+    <div class="report-wrap" id="report-wrap"></div>
+  </div>
+
+  <script>
+    const GEMINI_API_KEY = 'COLOQUE_SUA_CHAVE_AQUI';
+    const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + GEMINI_API_KEY;
+
+    const Qs = [
+      { id: 'segment', text: 'Qual é o segmento da sua empresa?', type: 'opts', opts: [{ i: '🍔', l: 'Alimentação / Restaurante', s: 'Lanchonetes, pizzarias, cafés' }, { i: '🛍️', l: 'Loja / Varejo', s: 'Produtos físicos ou e-commerce' }, { i: '💆', l: 'Estética / Saúde', s: 'Salões, clínicas, bem-estar' }, { i: '🏗️', l: 'Construção / Serviços', s: 'Reformas, instalações, manutenção' }, { i: '🎓', l: 'Educação / Cursos', s: 'Treinamentos, mentorias, aulas' }, { i: '💻', l: 'Tecnologia', s: 'Software, apps, sistemas' }, { i: '⚖️', l: 'Consultoria / Jurídico', s: 'Assessoria, advocacia, contabilidade' }, { i: '✏️', l: 'Outro segmento', s: 'Informe no próximo campo' }] },
+      { id: 'site', text: 'Sua empresa tem um site próprio?', type: 'opts', opts: [{ i: '✅', l: 'Sim, tenho site profissional', s: 'Com domínio próprio e identidade visual' }, { i: '🔶', l: 'Tenho algo básico / informal', s: 'Landing page, link na bio, etc.' }, { i: '🚧', l: 'Estou desenvolvendo', s: 'Em construção ou planejamento' }, { i: '❌', l: 'Não tenho site', s: 'Apenas redes sociais' }] },
+      { id: 'google', text: 'Como está sua empresa no Google?', type: 'opts', opts: [{ i: '⭐', l: 'Google Meu Negócio ativo e otimizado', s: 'Com fotos, horários e avaliações' }, { i: '🔶', l: 'Tenho, mas está incompleto', s: 'Sem fotos, horários ou avaliações' }, { i: '❌', l: 'Não tenho Google Meu Negócio', s: 'Não apareço em buscas locais' }, { i: '🤷', l: 'Não sei o que é isso', s: 'Nunca ouvi falar' }] },
+      { id: 'social', text: 'Como está sua presença nas redes sociais?', type: 'opts', opts: [{ i: '🚀', l: 'Posto com frequência e estratégia', s: 'Conteúdo consistente e engajamento' }, { i: '😐', l: 'Posto esporadicamente', s: 'Sem frequência definida' }, { i: '💀', l: 'Perfil parado há meses', s: 'Pouco ou nenhum conteúdo recente' }, { i: '❌', l: 'Não tenho redes sociais', s: 'Nenhum perfil para o negócio' }] },
+      { id: 'traffic', text: 'Como seus clientes chegam até você hoje?', type: 'opts', opts: [{ i: '👥', l: 'Indicação boca a boca', s: 'A maior parte vem de indicações' }, { i: '📣', l: 'Anúncios pagos', s: 'Meta Ads, Google Ads, TikTok Ads' }, { i: '🔍', l: 'Busca orgânica no Google', s: 'Me encontram sem anúncios' }, { i: '📱', l: 'Redes sociais orgânicas', s: 'Seguidores que viram clientes' }, { i: '😅', l: 'Poucos clientes chegam', s: 'Dificuldade de atrair novos' }] },
+      { id: 'reviews', text: 'Qual é a sua reputação online?', type: 'opts', opts: [{ i: '⭐', l: 'Muitas avaliações positivas', s: '4.5+ estrelas e volume alto' }, { i: '🔶', l: 'Poucas avaliações', s: 'Menos de 10 avaliações' }, { i: '😬', l: 'Tenho avaliações negativas', s: 'Reclamações sem resposta' }, { i: '❌', l: 'Nenhuma avaliação online', s: 'Não me encontram no Google' }] },
+      { id: 'competitor', text: 'Como você está em relação à concorrência online?', type: 'opts', opts: [{ i: '💪', l: 'Estou à frente', s: 'Minha presença é melhor que a deles' }, { i: '😐', l: 'Estou no mesmo nível', s: 'Similar à maioria dos concorrentes' }, { i: '😓', l: 'Estou ficando para trás', s: 'Concorrentes aparecem mais que eu' }, { i: '🤷', l: 'Não acompanho', s: 'Nunca analisei a concorrência' }] },
+      { id: 'links', text: 'Compartilhe seus canais online para uma análise ainda mais precisa:', type: 'links', sub: 'Opcional — mas quanto mais info, mais personalizado o diagnóstico.', placeholder_ig: '@seu.perfil ou instagram.com/seu-perfil', placeholder_site: 'seu-site.com.br' },
+      { id: 'name', text: 'Qual é o nome da sua empresa?', type: 'text', placeholder: 'Ex: Pizzaria do João, Studio Beleza Clara...', sub: 'Último passo! Vamos personalizar o relatório com o nome do seu negócio.' }
+    ];
+
+    let step = 0; const A = {};
+
+    // counters
+    (function () {
+      const targets = [30, 98, 3]; const ids = ['c1', 'c2', 'c3'];
+      ids.forEach(function (id, i) {
+        let c = 0; const t = setInterval(function () { c = Math.min(c + 1, targets[i]); document.getElementById(id).textContent = c + (i === 1 ? '%' : '+'); if (c >= targets[i]) clearInterval(t); }, 40);
+      });
+    })();
+
+    function showPage(id) { document.querySelectorAll('.page').forEach(function (p) { p.classList.remove('active'); }); document.getElementById(id).classList.add('active'); window.scrollTo(0, 0); }
+
+    function startQuiz() { showPage('page-quiz'); buildDots(); renderQ(); }
+
+    function buildDots() {
+      var row = document.getElementById('quiz-dots'); row.innerHTML = '';
+      Qs.forEach(function (_, i) { var d = document.createElement('div'); d.className = 'qdot' + (i === 0 ? ' active' : ''); d.id = 'd' + i; row.appendChild(d); });
+    }
+
+    function updateDots() {
+      Qs.forEach(function (_, i) { var d = document.getElementById('d' + i); if (!d) return; d.className = 'qdot' + (i < step ? ' done' : i === step ? ' active' : ''); });
+      var l = document.getElementById('qdot-lbl'); if (l) l.textContent = 'Pergunta ' + (step + 1) + ' de ' + Qs.length;
+    }
+
+    function renderQ() {
+      updateDots(); var q = Qs[step]; var area = document.getElementById('quiz-area'); area.innerHTML = '';
+      var card = document.createElement('div'); card.className = 'quiz-card';
+      var html = '<div class="q-eyebrow">Pergunta ' + (step + 1) + ' de ' + Qs.length + '</div><div class="q-text">' + q.text + '</div>';
+      if (q.type === 'opts') { html += '<div class="opts-grid" id="og"></div>'; }
+      else if (q.type === 'links') {
+        html += '<div class="text-q-wrap">' + (q.sub ? '<p class="text-q-sub">' + q.sub + '</p>' : '');
+        html += '<div style="display:flex;flex-direction:column;gap:10px;">';
+        html += '<div style="display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border2);border-radius:14px;padding:4px 16px;">';
+        html += '<span style="font-size:1.1rem">📸</span><input class="text-q-input" id="ti-ig" type="text" placeholder="' + (q.placeholder_ig || '') + '" style="background:transparent;border:none;padding:12px 0;"/></div>';
+        html += '<div style="display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border2);border-radius:14px;padding:4px 16px;">';
+        html += '<span style="font-size:1.1rem">🌐</span><input class="text-q-input" id="ti-site" type="text" placeholder="' + (q.placeholder_site || '') + '" style="background:transparent;border:none;padding:12px 0;"/></div>';
+        html += '</div>';
+        html += '<div style="display:flex;gap:10px;justify-content:flex-end;margin-top:4px;">';
+        html += '<button class="text-q-btn" id="tb-skip" style="background:transparent;border:1px solid var(--border2);color:var(--muted);box-shadow:none;">Pular →</button>';
+        html += '<button class="text-q-btn" id="tb">Continuar →</button>';
+        html += '</div></div>';
+      }
+      else { html += '<div class="text-q-wrap">' + (q.sub ? '<p class="text-q-sub">' + q.sub + '</p>' : '') + '<input class="text-q-input" id="ti" type="text" placeholder="' + (q.placeholder || '') + '"/><button class="text-q-btn" id="tb">Gerar meu diagnóstico →</button></div>'; }
+      card.innerHTML = html; area.appendChild(card);
+      if (q.type === 'opts') {
+        var og = card.querySelector('#og');
+        q.opts.forEach(function (o) {
+          var b = document.createElement('button'); b.className = 'opt-card';
+          b.innerHTML = '<div class="opt-icon">' + o.i + '</div><div class="opt-body"><div class="opt-label">' + o.l + '</div>' + (o.s ? '<div class="opt-sub">' + o.s + '</div>' : '') + '</div>';
+          b.onclick = function () { pick(o.l, q.id); }; og.appendChild(b);
+        });
+      } else if (q.type === 'links') {
+        var igInp = card.querySelector('#ti-ig'); var siteInp = card.querySelector('#ti-site');
+        var skipBtn = card.querySelector('#tb-skip'); var contBtn = card.querySelector('#tb');
+        function collectLinks() {
+          var ig = igInp.value.trim(); var site = siteInp.value.trim(); var val = '';
+          if (ig) val += 'Instagram: ' + ig + ' ';
+          if (site) val += 'Site: ' + site;
+          pick(val.trim() || '(não informado)', q.id);
+        }
+        contBtn.onclick = collectLinks;
+        skipBtn.onclick = function () { pick('(não informado)', q.id); };
+        igInp.focus();
+      } else {
+        var inp = card.querySelector('#ti'); var btn = card.querySelector('#tb');
+        btn.onclick = function () { if (inp.value.trim()) pick(inp.value.trim(), q.id); };
+        inp.addEventListener('keydown', function (e) { if (e.key === 'Enter' && inp.value.trim()) pick(inp.value.trim(), q.id); });
+        setTimeout(function () { inp.focus(); }, 200);
+      }
+    }
+
+    function pick(val, qId) {
+      A[qId] = val; step++;
+      var card = document.querySelector('.quiz-card');
+      if (card) { card.style.cssText = 'opacity:0;transform:translateY(-12px) scale(.97);transition:all .25s;'; }
+      if (step < Qs.length) { setTimeout(renderQ, 250); } else { setTimeout(runLoading, 250); }
+    }
+
+    function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    async function fetchInstagramProfile(handle) {
+      try {
+        // normalize handle
+        var username = handle.replace('@', '').replace(/.*instagram\.com\//, '').split('/')[0].split('?')[0].trim();
+        if (!username) return null;
+        var igUrl = 'https://www.instagram.com/' + username + '/';
+        var proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(igUrl);
+        var res = await fetch(proxyUrl, { signal: AbortSignal.timeout(9000) });
+        if (!res.ok) return null;
+        var data = await res.json();
+        var html = data.contents || '';
+        if (!html || html.length < 200) return null;
+        // check if it redirected to login (blocked)
+        if (html.includes('login') || html.includes('Log In') || html.includes('signup')) {
+          return { username: username, blocked: true };
+        }
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var getMeta = function (prop) { var el = doc.querySelector('meta[property="' + prop + '"],meta[name="' + prop + '"]'); return el ? el.getAttribute('content') : '' };
+        var ogTitle = getMeta('og:title');   // "Name (@username) • Instagram"
+        var ogDesc = getMeta('og:description'); // "X Followers, Y Following, Z Posts - bio text"
+        var ogImage = getMeta('og:image');
+        // also try to grab any JSON-LD
+        var jsonLd = null;
+        try {
+          var ldScript = doc.querySelector('script[type="application/ld+json"]');
+          if (ldScript) jsonLd = JSON.parse(ldScript.textContent);
+        } catch (e) { }
+        var profile = {};
+        profile.username = username;
+        profile.displayName = ogTitle ? ogTitle.replace(/\s*[•\|].*$/, '').trim() : username;
+        profile.bio = '';
+        profile.followers = '';
+        profile.posts = '';
+        // parse og:description: usually "X Followers, Y Following, Z Posts - bio"
+        if (ogDesc) {
+          var bioMatch = ogDesc.match(/-(.*)/s);
+          if (bioMatch) profile.bio = bioMatch[1].trim().slice(0, 300);
+          var follMatch = ogDesc.match(/([\d,.]+[KkMm]?)\s*Followers/i);
+          if (follMatch) profile.followers = follMatch[1];
+          var postMatch = ogDesc.match(/([\d,.]+)\s*Posts/i);
+          if (postMatch) profile.posts = postMatch[1];
+        }
+        // fallback from JSON-LD
+        if (jsonLd) {
+          if (!profile.bio && jsonLd.description) profile.bio = jsonLd.description.slice(0, 300);
+          if (!profile.displayName && jsonLd.name) profile.displayName = jsonLd.name;
+        }
+        profile.imageUrl = ogImage || '';
+        return profile;
+      } catch (e) { return null; }
+    }
+
+    function formatInstagramContent(ig) {
+      if (!ig) return '';
+      if (ig.blocked) return '\n\n=== INSTAGRAM (@' + ig.username + ') ===\nObs: perfil requer login para visualização pública ou está privado.\n===';
+      var out = '\n\n=== ANÁLISE DO INSTAGRAM (@' + ig.username + ') ===\n';
+      if (ig.displayName) out += 'Nome exibido: ' + ig.displayName + '\n';
+      if (ig.followers) out += 'Seguidores: ' + ig.followers + '\n';
+      if (ig.posts) out += 'Total de posts: ' + ig.posts + '\n';
+      if (ig.bio) out += 'Bio atual: "' + ig.bio + '"\n';
+      else out += 'Bio: não detectada (possivelmente vazia)\n';
+      out += '===';
+      return out;
+    }
+
+    async function fetchSiteContent(siteUrl) {
+      try {
+        // normalize URL
+        var url = siteUrl.trim();
+        if (!url.startsWith('http')) url = 'https://' + url;
+        // use allorigins CORS proxy
+        var proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
+        var res = await fetch(proxyUrl, { signal: AbortSignal.timeout(8000) });
+        if (!res.ok) return null;
+        var data = await res.json();
+        var html = data.contents || '';
+        if (!html || html.length < 100) return null;
+        // parse the HTML text
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        // remove scripts, styles, nav, footer
+        ['script', 'style', 'nav', 'footer', 'header', 'noscript', 'svg'].forEach(function (tag) {
+          doc.querySelectorAll(tag).forEach(function (el) { el.remove(); });
+        });
+        var extracted = {};
+        extracted.title = (doc.querySelector('title') || { textContent: '' }).textContent.trim().slice(0, 120);
+        var mDesc = doc.querySelector('meta[name="description"]');
+        extracted.meta = mDesc ? mDesc.getAttribute('content').slice(0, 250) : '';
+        var h1 = doc.querySelector('h1');
+        extracted.h1 = h1 ? h1.textContent.trim().slice(0, 120) : '';
+        var h2s = Array.from(doc.querySelectorAll('h2')).slice(0, 5).map(function (h) { return h.textContent.trim(); }).join(' | ');
+        extracted.h2s = h2s.slice(0, 300);
+        var ps = Array.from(doc.querySelectorAll('p')).filter(function (p) { return p.textContent.trim().length > 40; }).slice(0, 6).map(function (p) { return p.textContent.trim(); }).join(' ');
+        extracted.body = ps.slice(0, 600);
+        var btns = Array.from(doc.querySelectorAll('a,button')).map(function (b) { return b.textContent.trim(); }).filter(function (t) { return t.length > 2 && t.length < 40; }).slice(0, 8).join(', ');
+        extracted.ctas = btns;
+        return extracted;
+      } catch (e) { return null; }
+    }
+
+    function formatSiteContent(c) {
+      if (!c) return '';
+      var out = '\n\n=== CONTEÚDO REAL DO SITE (raspado ao vivo) ===\n';
+      if (c.title) out += 'Título: ' + c.title + '\n';
+      if (c.meta) out += 'Meta description: ' + c.meta + '\n';
+      if (c.h1) out += 'H1 principal: ' + c.h1 + '\n';
+      if (c.h2s) out += 'Sub-títulos: ' + c.h2s + '\n';
+      if (c.body) out += 'Texto da página: ' + c.body + '\n';
+      if (c.ctas) out += 'Botões/links: ' + c.ctas + '\n';
+      out += '===';
+      return out;
+    }
+
+    async function runLoading() {
+      showPage('page-loading');
+      var steps = [['ls1', 'ls1i'], ['ls2', 'ls2i'], ['ls3', 'ls3i'], ['ls4', 'ls4i'], ['ls5', 'ls5i'], ['ls6', 'ls6i']];
+      await delay(600);
+      markStep(steps, 0, 'active');
+      await delay(500);
+      markStep(steps, 0, 'done'); markStep(steps, 1, 'active');
+      // fetch Instagram and site in parallel
+      var igPromise = Promise.resolve(null);
+      var sitePromise = Promise.resolve(null);
+      if (A.links && A.links !== '(não informado)') {
+        var igMatch = A.links.match(/Instagram:\s*(\S+)/);
+        if (igMatch && igMatch[1]) igPromise = fetchInstagramProfile(igMatch[1]);
+        var siteMatch = A.links.match(/Site:\s*(\S+)/);
+        if (siteMatch && siteMatch[1]) sitePromise = fetchSiteContent(siteMatch[1]);
+      }
+      var results = await Promise.all([igPromise, sitePromise]);
+      A._igContent = results[0];
+      A._siteContent = results[1];
+      await delay(300);
+      markStep(steps, 1, 'done'); markStep(steps, 2, 'active');
+      await delay(700);
+      markStep(steps, 2, 'done'); markStep(steps, 3, 'active');
+      await delay(700);
+      markStep(steps, 3, 'done'); markStep(steps, 4, 'active');
+      var aiText = '';
+      try { aiText = await callGemini(buildPrompt()); } catch (e) { aiText = fallback(); }
+      await delay(600);
+      markStep(steps, 4, 'done'); markStep(steps, 5, 'active');
+      await delay(500);
+      markStep(steps, 5, 'done');
+      await delay(400);
+      buildReport(aiText); showPage('page-report');
+    }
+
+    function markStep(steps, idx, state) {
+      var s = steps[idx]; if (!s) return;
+      var el = document.getElementById(s[0]); var ic = document.getElementById(s[1]); if (!el || !ic) return;
+      if (state === 'active') { el.classList.add('active'); ic.className = 'ls-icon running'; ic.textContent = ''; }
+      else if (state === 'done') { el.classList.remove('active'); el.classList.add('done'); ic.className = 'ls-icon complete'; ic.textContent = '✓'; }
+    }
+
+    function buildPrompt() {
+      var linksCtx = A.links && A.links !== '(não informado)' ? '\n- Canais online fornecidos: ' + A.links : '';
+      var igCtx = A._igContent ? formatInstagramContent(A._igContent) : '';
+      var siteCtx = A._siteContent ? formatSiteContent(A._siteContent) : '';
+      var hasRealData = !!(A._igContent || A._siteContent);
+      return 'Você é um especialista sênior em marketing digital da agência 2Type.\n\n' +
+        'Empresa: "' + A.name + '" | Segmento: ' + A.segment + '\n\n' +
+        'Diagnóstico:\n- Site: ' + A.site + '\n- Google: ' + A.google + '\n- Redes Sociais: ' + A.social + '\n- Aquisição: ' + A.traffic + '\n- Reputação: ' + A.reviews + '\n- vs Concorrência: ' + A.competitor + linksCtx + igCtx + siteCtx + '\n\n' +
+        'Escreva uma análise consultiva em português do Brasil com exatamente 3 parágrafos:\n' +
+        '§1 — Avaliação honesta da situação atual (mencione o nome da empresa)' + (A._igContent && !A._igContent.blocked ? ' e analise o perfil do Instagram (qualidade da bio, clareza do posicionamento, presença de CTA na bio, coerência entre nome exibido e segmento)' : '') + (A._siteContent ? ' e o conteúdo real do site (SEO, copy, CTA, clareza da mensagem)' : '') + '.\n' +
+        '§2 — Os 2-3 maiores erros que estão freando o crescimento' + (hasRealData ? ' (use os dados reais coletados para ser específico)' : '') + ' e custo real disso\n' +
+        '§3 — O que a 2Type pode fazer para mudar isso em 30-60 dias (CTA motivador)\n\n' +
+        'Tom: especialista, direto, levemente urgente, encorajador. Sem markdown, sem bullet points, sem asteriscos. Apenas parágrafos corridos.';
+    }
+
+    async function callGemini(prompt) {
+      var res = await fetch(GEMINI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: 0.72, maxOutputTokens: 600 } }) });
+      if (!res.ok) throw new Error(res.status);
+      var data = await res.json(); return data.candidates[0].content.parts[0].text.trim();
+    }
+
+    function fallback() {
+      var n = A.name || 'sua empresa';
+      return 'A ' + n + ' apresenta lacunas críticas em canais que seu público-alvo usa todos os dias para encontrar empresas como a sua. Enquanto essas lacunas existem, clientes estão indo direto para a concorrência.\n\nOs maiores pontos críticos identificados são a ausência ou inconsistência na presença no Google e nas redes sociais. Quando um cliente pesquisa pelo seu serviço, você simplesmente não aparece — ou aparece de forma que não gera confiança. Cada dia nessa situação representa receita perdida de forma permanente.\n\nA boa notícia é que a 2Type já transformou dezenas de negócios com exatamente esse perfil. Em 30 a 60 dias, é possível reverter completamente esse cenário com as estratégias certas. Entre em contato agora e vamos montar juntos um plano de ação personalizado para ' + n + '.';
+    }
+
+    function buildAnalysis() {
+      var score = 0; var cards = [];
+      var site = A.site || '';
+      if (site.includes('profissional')) { score += 25; cards.push({ i: '🌐', t: 'Site Profissional', s: 'cg', b: 'bg-', ba: 'ok', desc: 'Você tem um site profissional — essencial! Certifique-se de que está otimizado para SEO e tem uma taxa de conversão sólida.', action: 'Otimize SEO e velocidade' }); }
+      else if (site.includes('básico') || site.includes('desenvolvendo')) { score += 10; cards.push({ i: '🌐', t: 'Site Profissional', s: 'cy', b: 'by', ba: 'wa', desc: 'Ter algo informal coloca você em desvantagem. Um site profissional transmite credibilidade instantânea.', action: '⚡ Prioridade: criar site profissional' }); }
+      else { cards.push({ i: '🌐', t: 'Site Profissional', s: 'cr', b: 'br', ba: 'ur', desc: 'Sem site próprio, você é invisível para quem pesquisa no Google. São centenas de clientes que jamais chegam até você.', action: '🚨 Urgente: você é invisível online' }); }
+      var google = A.google || '';
+      if (google.includes('ativo e otimizado')) { score += 20; cards.push({ i: '🔍', t: 'Google Meu Negócio', s: 'cg', b: 'bg-', ba: 'ok', desc: 'Excelente! Você aparece nas buscas locais. Continue coletando avaliações e postando atualizações regularmente.', action: 'Continue otimizando avaliações' }); }
+      else if (google.includes('incompleto')) { score += 8; cards.push({ i: '🔍', t: 'Google Meu Negócio', s: 'cy', b: 'by', ba: 'wa', desc: 'Perfil incompleto reduz sua posição nas buscas e passa falta de profissionalismo para quem te encontra.', action: '⚡ Complete fotos, horários e posts' }); }
+      else { cards.push({ i: '🔍', t: 'Google Meu Negócio', s: 'cr', b: 'br', ba: 'ur', desc: 'Você perde todas as pesquisas locais. Seus concorrentes aparecem — você não. É receita indo embora todo dia.', action: '🚨 Urgente: configure agora gratuitamente' }); }
+      var social = A.social || '';
+      if (social.includes('frequência e estratégia')) { score += 20; cards.push({ i: '📱', t: 'Redes Sociais', s: 'cg', b: 'bg-', ba: 'ok', desc: 'Consistência nas redes é raro e valioso. Foque em conteúdo que converte: provas sociais, bastidores e ofertas.', action: 'Aumente o conteúdo de conversão' }); }
+      else if (social.includes('esporadicamente')) { score += 8; cards.push({ i: '📱', t: 'Redes Sociais', s: 'cy', b: 'by', ba: 'wa', desc: 'Postar esporadicamente sinaliza falta de confiabilidade. Frequência é credibilidade no mundo digital.', action: '⚡ Crie uma grade semanal de conteúdo' }); }
+      else { cards.push({ i: '📱', t: 'Redes Sociais', s: 'cr', b: 'br', ba: 'ur', desc: 'Perfil parado é um dos maiores erros atuais. Seus concorrentes capturam seus clientes lá enquanto você está ausente.', action: '🚨 Urgente: sua marca está invisível' }); }
+      var traffic = A.traffic || '';
+      if (traffic.includes('orgânica') || traffic.includes('pagos')) { score += 20; cards.push({ i: '📊', t: 'Aquisição Digital', s: 'cg', b: 'bg-', ba: 'ok', desc: 'Ter canais digitais funcionando é uma vantagem competitiva real. Escale o que funciona e diversifique as fontes.', action: 'Escale os canais que já convertem' }); }
+      else if (traffic.includes('boca a boca')) { score += 10; cards.push({ i: '📊', t: 'Aquisição Digital', s: 'cy', b: 'by', ba: 'wa', desc: 'Indicações são ótimas, mas limitam o crescimento ao círculo de quem já te conhece. Você não escala assim.', action: '⚡ Estruture canais digitais de captação' }); }
+      else { cards.push({ i: '📊', t: 'Aquisição Digital', s: 'cr', b: 'br', ba: 'ur', desc: 'Sem estratégia digital, seu negócio depende da sorte. Zero previsibilidade de receita ou controle de crescimento.', action: '🚨 Urgente: zero previsibilidade de clientes' }); }
+      var reviews = A.reviews || '';
+      if (reviews.includes('Muitas')) { score += 15; cards.push({ i: '⭐', t: 'Reputação Online', s: 'cg', b: 'bg-', ba: 'ok', desc: 'Ótima reputação converte visitantes em clientes. Continue incentivando avaliações após cada atendimento.', action: 'Continue incentivando avaliações' }); }
+      else if (reviews.includes('Poucas')) { score += 6; cards.push({ i: '⭐', t: 'Reputação Online', s: 'cy', b: 'by', ba: 'wa', desc: 'Poucas avaliações geram dúvida. Mais de 90% das pessoas lê avaliações antes de contratar qualquer serviço.', action: '⚡ Crie processo de coleta de reviews' }); }
+      else { cards.push({ i: '⭐', t: 'Reputação Online', s: 'cr', b: 'br', ba: 'ur', desc: 'Avaliações negativas sem resposta ou ausência total de avaliações afastam clientes antes mesmo de você conversar com eles.', action: '🚨 Urgente: reputação comprometida' }); }
+      return { score: Math.min(score, 100), cards: cards };
+    }
+
+    function buildPrios(cards) {
+      var impactMap = { 'Site Profissional': 'Clientes que te encontram no Google convertem 3x mais quando há site profissional.', 'Google Meu Negócio': '46% das buscas no Google são locais. Você está perdendo metade do mercado.', 'Redes Sociais': 'Empresas com presença ativa vendem até 2x mais para clientes entre 18-45 anos.', 'Aquisição Digital': 'Sem canal digital, você depende de sorte. Com ele, tem previsibilidade de receita.', 'Reputação Online': '93% dos consumidores lêem avaliações antes de comprar. É ativo ou passivo.' };
+      var crit = cards.filter(function (c) { return c.s === 'cr'; });
+      var warn = cards.filter(function (c) { return c.s === 'cy'; });
+      var all = [].concat(crit, warn).slice(0, 3);
+      return all.map(function (c, i) { return { n: i + 1, t: c.t, desc: c.desc, impact: impactMap[c.t] || 'Impacto direto na captação de novos clientes.', cls: i === 0 ? 'p1' : i === 1 ? 'p2' : 'p3' }; });
+    }
+
+    function buildStrategyPrompt() {
+      var linksCtx = A.links && A.links !== '(não informado)' ? '\nCanais online do cliente: ' + A.links : '';
+      return 'Você é um estrategista de marketing digital da agência 2Type.\n\n' +
+        'Empresa: "' + A.name + '" | Segmento: ' + A.segment + '\n' +
+        'Canal atual de clientes: ' + A.traffic + '\n' +
+        'Presença nas redes: ' + A.social + linksCtx + '\n\n' +
+        'Gere uma estratégia inicial GRATUITA e PRÁTICA com EXATAMENTE este formato JSON (sem markdown, sem texto fora do JSON):\n' +
+        '{' +
+        '"posts":[' +
+        '{"titulo":"...","gancho":"..."},' +
+        '{"titulo":"...","gancho":"..."},' +
+        '{"titulo":"...","gancho":"..."}' +
+        '],' +
+        '"canal":{"nome":"...","motivo":"..."},' +
+        '"seo":{"acao":"...","impacto":"..."}' +
+        '}\n\n' +
+        'posts: 3 ideias de post criativas e específicas para "' + A.name + '". titulo=chamada do post (máx 10 palavras). gancho=frase de abertura do post (máx 18 palavras).\n' +
+        'canal: o melhor canal de aquisição para o negócio agora. nome=nome do canal. motivo=por que é o melhor (máx 15 palavras).\n' +
+        'seo: uma ação de SEO local rápida. acao=o que fazer (máx 12 palavras). impacto=resultado esperado (máx 12 palavras).\n' +
+        'Responda SOMENTE o JSON.';
+    }
+
+    async function callGeminiStrategy() {
+      var res = await fetch(GEMINI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ parts: [{ text: buildStrategyPrompt() }] }], generationConfig: { temperature: 0.8, maxOutputTokens: 500 } }) });
+      if (!res.ok) throw new Error(res.status);
+      var data = await res.json();
+      var raw = data.candidates[0].content.parts[0].text.trim();
+      raw = raw.replace(/```json/g, '').replace(/```/g, '').trim();
+      return JSON.parse(raw);
+    }
+
+    function buildGiftBlock(strategy) {
+      var waLink = 'https://wa.me/5512987005369?text=' + encodeURIComponent('Olá! Vi a estratégia gratuita gerada para ' + A.name + ' e quero implementar com a 2Type!');
+      var postsHTML = strategy.posts.map(function (p, i) { return '<div class="gift-post"><div class="gift-post-num">POST ' + String.fromCharCode(65 + i) + '</div><div class="gift-post-text">' + p.titulo + '</div><div class="gift-post-hook">"' + p.gancho + '"</div></div>'; }).join('');
+      // build links badges
+      var linksHTML = '';
+      var privateWarningHTML = '';
+      if (A.links && A.links !== '(não informado)') {
+        var parts = A.links.split(' ');
+        var ig = ''; var site = '';
+        parts.forEach(function (p) { if (p.startsWith('Instagram:')) ig = parts[parts.indexOf(p) + 1]; if (p.startsWith('Site:')) site = parts[parts.indexOf(p) + 1]; });
+        if (ig) { var igUrl = ig.startsWith('http') ? ig : 'https://instagram.com/' + ig.replace('@', '').replace('instagram.com/', ''); linksHTML += '<a href="' + igUrl + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.25);border-radius:100px;padding:4px 12px;font-size:.75rem;font-weight:600;color:#ec4899;text-decoration:none;margin-right:8px;margin-top:8px;">📸 ' + ig + '</a>'; }
+        if (site) { var siteUrl = site.startsWith('http') ? site : 'https://' + site; linksHTML += '<a href="' + siteUrl + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);border-radius:100px;padding:4px 12px;font-size:.75rem;font-weight:600;color:var(--cyan);text-decoration:none;margin-top:8px;">🌐 ' + site + '</a>'; }
+        // private profile warning
+        if (A._igContent && A._igContent.blocked && ig) {
+          privateWarningHTML =
+            '<div style="margin-top:16px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.3);border-radius:14px;padding:14px 18px;display:flex;gap:12px;align-items:flex-start;">' +
+            '<span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">🔒</span>' +
+            '<div style="flex:1;">' +
+            '<div style="font-size:.85rem;font-weight:700;color:#FBBF24;margin-bottom:4px;">Perfil do Instagram privado detectado</div>' +
+            '<div style="font-size:.8rem;color:var(--muted);line-height:1.55;">Para a IA analisar sua bio, nome e posicionamento, seu perfil precisa estar <strong style="color:var(--text)">público</strong>. Deixe-o público, depois <a href="javascript:location.reload()" style="color:#FBBF24;font-weight:700;text-decoration:none;">refaça o diagnóstico</a> para uma análise completa.</div>' +
+            '<a href="https://www.instagram.com/accounts/privacy_and_security/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.25);border-radius:8px;padding:6px 14px;font-size:.75rem;font-weight:700;color:#FBBF24;text-decoration:none;">⚙️ Ir para configurações do Instagram →</a>' +
+            '</div>' +
+            '</div>';
+        }
+      }
+      return '<div class="gift-block" id="gift-block">' +
+        '<div class="gift-header">' +
+        '<div class="gift-icon-wrap">🎁</div>' +
+        '<div class="gift-header-text">' +
+        '<div class="gift-tag">✨ Amostra grátis · Exclusivo para ' + A.name + '</div>' +
+        '<div class="gift-title">Sua estratégia de conteúdo personalizada</div>' +
+        '<div class="gift-sub">Geramos isso gratuitamente para você ter um gostinho do que entregamos. Isso é apenas o começo.</div>' +
+        (linksHTML ? '<div style="margin-top:4px;">' + linksHTML + '</div>' : '') +
+        privateWarningHTML +
+        '</div>' +
+        '</div>' +
+        '<div class="gift-divider"></div>' +
+        '<div class="gift-content">' +
+        '<div>' +
+        '<div class="gift-section-title">📱 3 ideias de post prontas para usar</div>' +
+        '<div class="gift-posts">' + postsHTML + '</div>' +
+        '</div>' +
+        '<div class="gift-row">' +
+        '<div class="gift-tip">' +
+        '<div class="gift-tip-label">📣 Melhor canal agora</div>' +
+        '<div class="gift-tip-text"><strong>' + strategy.canal.nome + '</strong><br/>' + strategy.canal.motivo + '</div>' +
+        '</div>' +
+        '<div class="gift-tip">' +
+        '<div class="gift-tip-label" style="color:var(--green)">🔍 SEO local rápido</div>' +
+        '<div class="gift-tip-text"><strong>' + strategy.seo.acao + '</strong><br/>' + strategy.seo.impacto + '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="gift-footer">' +
+        '<div class="gift-footer-note">💡 Isso foi gerado em segundos. Imagine o que fazemos com 30 dias dedicados ao seu negócio.</div>' +
+        '<a href="' + waLink + '" class="gift-footer-btn" target="_blank">Quero isso implementado →</a>' +
+        '</div>' +
+        '</div>';
+    }
+
+    function buildGiftLoading() {
+      return '<div class="gift-block" id="gift-block"><div class="gift-loading"><div class="gift-loading-ring"></div><div style="font-size:.88rem;color:var(--muted);font-weight:600">Gerando sua estratégia personalizada...</div></div></div>';
+    }
+
+    function buildReport(aiText) {
+      var ana = buildAnalysis(); var score = ana.score; var cards = ana.cards;
+      var prios = buildPrios(cards);
+      var scoreColor = score >= 70 ? '#4ADE80' : score >= 40 ? '#FBBF24' : '#F87171';
+      var scorePill = score >= 70 ? 'pill-green' : score >= 40 ? 'pill-yellow' : 'pill-red';
+      var scoreMsg = score >= 70 ? '✅ Boa Presença Digital' : score >= 40 ? '⚠️ Presença Moderada' : '🚨 Presença Crítica';
+      var scoreSub = score >= 70 ? 'Sua empresa tem uma base digital sólida, mas ainda há espaço para se distanciar dos concorrentes.' : score >= 40 ? 'Você está no caminho certo em alguns pontos, mas há falhas críticas custando clientes todos os dias.' : 'Sua presença digital está em estado crítico. Cada dia assim é receita indo para a concorrência.';
+      var circ = 2 * Math.PI * 65; var offset = circ - (score / 100) * circ;
+      var gradStroke = score >= 70 ? 'url(#gg)' : score >= 40 ? 'url(#gy)' : 'url(#gr)';
+      var barData = [
+        { l: 'Site & SEO', v: A.site && A.site.includes('profissional') ? 90 : A.site && A.site.includes('básico') ? 45 : 5, c: '#A855F7' },
+        { l: 'Google Local', v: A.google && A.google.includes('ativo') ? 90 : A.google && A.google.includes('incompleto') ? 40 : 5, c: '#22D3EE' },
+        { l: 'Redes Sociais', v: A.social && A.social.includes('frequência') ? 90 : A.social && A.social.includes('esporadicamente') ? 40 : 5, c: '#EC4899' },
+        { l: 'Captação', v: A.traffic && (A.traffic.includes('orgânica') || A.traffic.includes('pagos')) ? 90 : A.traffic && A.traffic.includes('boca') ? 45 : 10, c: '#FBBF24' },
+        { l: 'Reputação', v: A.reviews && A.reviews.includes('Muitas') ? 90 : A.reviews && A.reviews.includes('Poucas') ? 40 : 10, c: '#4ADE80' },
+      ];
+      var barsHTML = barData.map(function (b) { return '<div class="bar-row"><div class="bar-lbl">' + b.l + '</div><div class="bar-track"><div class="bar-fill" style="background:' + b.c + '" data-w="' + b.v + '"></div></div><div class="bar-val" style="color:' + b.c + '">' + b.v + '</div></div>'; }).join('');
+      var cardsHTML = cards.map(function (c) { return '<div class="diag-card ' + c.s + '"><div class="dc-top"><span class="dc-icon">' + c.i + '</span><span class="dc-badge ' + c.b + '">' + (c.s === 'cr' ? '🔴 Crítico' : c.s === 'cy' ? '🟡 Atenção' : '🟢 OK') + '</span></div><div class="dc-title">' + c.t + '</div><div class="dc-desc">' + c.desc + '</div><div class="dc-action ' + c.ba + '">' + c.action + '</div></div>'; }).join('');
+      var priosHTML = prios.map(function (p) { return '<div class="prio-item"><div class="prio-num ' + p.cls + '">' + p.n + '</div><div class="prio-content"><div class="prio-title">' + p.t + '</div><div class="prio-desc">' + p.desc + '</div><div class="prio-impact">💡 ' + p.impact + '</div></div></div>'; }).join('');
+      var aiParas = aiText.split(/\n\n+/).map(function (p) { return '<p>' + p.trim() + '</p>'; }).join('');
+      var waLink = 'https://wa.me/5512987005369?text=' + encodeURIComponent('Olá! Fiz o diagnóstico digital da ' + A.name + ' e quero saber como a 2Type pode me ajudar a resolver os pontos críticos!');
+      var html =
+        '<div class="report-hero"><div class="rh-badge">✅ Diagnóstico Concluído</div><h1>Relatório Digital: <span class="grad">' + A.name + '</span></h1><p>Análise de presença digital gerada por IA em ' + new Date().toLocaleDateString('pt-BR') + '</p></div>' +
+        '<div class="score-section">' +
+        '<div class="score-gauge-wrap">' +
+        '<div class="score-gauge"><svg width="160" height="160" viewBox="0 0 160 160"><defs><linearGradient id="gr" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#F87171"/></linearGradient><linearGradient id="gy" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#FBBF24"/></linearGradient><linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#22c55e"/><stop offset="100%" style="stop-color:#4ADE80"/></linearGradient></defs><circle class="gauge-bg" cx="80" cy="80" r="65"/><circle class="gauge-fill" id="gf" cx="80" cy="80" r="65" stroke="' + gradStroke + '" stroke-dasharray="' + circ.toFixed(1) + '" stroke-dashoffset="' + circ.toFixed(1) + '" data-off="' + offset.toFixed(1) + '"/></svg><div class="gauge-center"><span class="gauge-num" id="gn" style="color:' + scoreColor + '">0</span><span class="gauge-max">/ 100</span></div></div>' +
+        '<span class="score-pill ' + scorePill + '">' + scoreMsg + '</span>' +
+        '</div>' +
+        '<div class="score-summary"><div class="ss-title">Resumo do seu posicionamento</div><div class="ss-text">' + scoreSub + '</div><div class="bars">' + barsHTML + '</div></div>' +
+        '</div>' +
+        '<div class="diag-section"><div class="section-divider"><div class="line"></div><span>Diagnóstico por área</span><div class="line"></div></div><div class="diag-grid">' + cardsHTML + '</div></div>' +
+        '<div class="ai-block"><div class="ai-block-hdr"><div class="ai-ico">🤖</div><div><div class="ai-title">Análise da IA Especialista</div><div class="ai-sub">Gerado por Gemini AI · Personalizado para ' + A.name + '</div></div></div><div class="ai-text">' + aiParas + '</div></div>' +
+        (prios.length ? '<div class="prio-block"><div class="section-divider"><div class="line"></div><span>Plano de ação prioritário</span><div class="line"></div></div><div class="prio-items">' + priosHTML + '</div></div>' : '') +
+        buildGiftLoading() +
+        '<div class="cta-block"><div class="cta-eyebrow">🚀 Próximo passo</div><h2>Chega de perder clientes<br/>para a concorrência</h2><p>Nossa equipe da 2Type já transformou dezenas de negócios com o mesmo perfil de <strong>' + A.name + '</strong>. Em 30 a 60 dias, é possível reverter completamente esse cenário.</p><div class="cta-urgency">⏳ Cada dia sem ação é receita indo para o concorrente</div><div class="cta-btns"><a href="' + waLink + '" class="btn-main" target="_blank">💬 Quero resolver com a 2Type</a><a href="../index.html#contact" class="btn-sec">📩 Falar por e-mail</a></div><div class="social-proof"><div class="sp-item">⭐⭐⭐⭐⭐ 5/5 satisfação</div><div class="sp-dot"></div><div class="sp-item">✅ +30 empresas transformadas</div><div class="sp-dot"></div><div class="sp-item">⚡ Resposta em até 2h</div></div></div>' +
+        '<div class="report-footer">Diagnóstico desenvolvido por <a href="../index.html">2Type</a> &bull; Powered by Gemini AI</div>';
+      document.getElementById('report-wrap').innerHTML = html;
+      setTimeout(function () {
+        var gf = document.getElementById('gf'); var gn = document.getElementById('gn');
+        if (gf) gf.style.strokeDashoffset = offset.toFixed(1);
+        var cur = 0; var t = setInterval(function () { cur = Math.min(cur + 2, score); if (gn) gn.textContent = cur; if (cur >= score) clearInterval(t); }, 30);
+        document.querySelectorAll('.bar-fill').forEach(function (b) { b.style.width = '0%'; setTimeout(function () { b.style.width = b.dataset.w + '%'; }, 300); });
+      }, 200);
+      // load free strategy async
+      callGeminiStrategy().then(function (strategy) {
+        var gb = document.getElementById('gift-block');
+        if (gb) gb.outerHTML = buildGiftBlock(strategy);
+      }).catch(function () {
+        var gb = document.getElementById('gift-block');
+        if (gb) gb.outerHTML = buildGiftBlock({
+          posts: [
+            { titulo: 'Por que nos clientes escolhem ' + A.name, gancho: 'Você sabia que a maioria das pessoas decide em menos de 3 segundos?' },
+            { titulo: 'Bastidores: como é trabalhar com a gente', gancho: 'Hoje vamos te mostrar o que acontece antes do resultado aparecer...' },
+            { titulo: 'O erro que faz você perder clientes todos os dias', gancho: '99% dos negócios cometem esse erro — e provavelmente você também.' }
+          ],
+          canal: { nome: 'Instagram + Reels', motivo: 'Maior alcance orgânico para seu segmento agora' },
+          seo: { acao: 'Configure Google Meu Negócio com fotos e horários', impacto: 'Apareça no mapa nas buscas locais hoje' }
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear diretórios sensíveis ou inúteis para busca
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /assets/vendor/
+
+Sitemap: https://www.twotype.com/sitemap.xml

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary Meta Tags -->
+  <title>2Type | Agência de Criação de Sites, Sistemas e Marketing Digital</title>
+  <meta name="title" content="2Type | Agência de Criação de Sites, Sistemas e Marketing Digital" />
+  <meta name="description" content="A 2Type transforma negócios com desenvolvimento de sites de alta conversão, aplicativos sob medida e estratégias de marketing digital focadas em ROI." />
+  <meta name="keywords" content="criação de sites, desenvolvimento web, marketing digital, agência de tecnologia, aplicativos, Guaratinguetá, tráfego pago, SEO, identidade visual" />
+  <meta name="author" content="2Type" />
+  <link rel="canonical" href="https://www.twotype.com/" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.twotype.com/" />
+  <meta property="og:title" content="2Type | Tecnologia que Transforma Negócios" />
+  <meta property="og:description" content="Escale suas vendas com nosso ecossistema digital: sites ultrarrápidos, sistemas sob medida e tráfego que converte." />
+  <meta property="og:image" content="https://www.twotype.com/assets/images/og_image_2type.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://www.twotype.com/" />
+  <meta property="twitter:title" content="2Type | Tecnologia que Transforma Negócios" />
+  <meta property="twitter:description" content="Escale suas vendas com nosso ecossistema digital: sites ultrarrápidos, sistemas sob medida e tráfego que converte." />
+  <meta property="twitter:image" content="https://www.twotype.com/assets/images/og_image_2type.jpg" />
+
+  <!-- Schema.org JSON-LD for LocalBusiness / Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "2Type",
+    "image": "https://www.twotype.com/assets/images/og_image_2type.jpg",
+    "description": "Criamos sistemas, sites, apps e estratégias de marketing digital que transformam negócios. Tecnologia de ponta e resultados reais.",
+    "@id": "https://www.twotype.com/",
+    "url": "https://www.twotype.com/",
+    "telephone": "+5512987005369",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Guaratinguetá",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://wa.me/5512987005369"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --purple-deep:#0D0010; --purple-dark:#130022; --purple-mid:#3B0070;
+      --purple-core:#6B21A8; --purple-vivid:#8B2FC9; --purple-bright:#A855F7;
+      --purple-light:#C084FC; --teal-core:#06B6D4; --teal-vivid:#22D3EE;
+      --white:#FFFFFF; --font-main:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+      --ease-smooth:cubic-bezier(0.25,0.46,0.45,0.94); --ease-spring:cubic-bezier(0.175,0.885,0.32,1.275);
+    }
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{background:var(--purple-deep);color:var(--white);font-family:var(--font-body);overflow-x:hidden;cursor:none}
+    ::selection{background:var(--purple-vivid);color:var(--white)}
+    #cursor{position:fixed;width:12px;height:12px;background:var(--purple-bright);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,background 0.3s;mix-blend-mode:screen}
+    #cursor-follower{position:fixed;width:40px;height:40px;border:1.5px solid rgba(168,85,247,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.25s var(--ease-smooth)}
+    ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:var(--purple-deep)} ::-webkit-scrollbar-thumb{background:var(--purple-vivid);border-radius:4px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;transition:all 0.4s var(--ease-smooth)}
+    nav.scrolled{background:rgba(13,0,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(168,85,247,0.15);padding:14px 60px}
+    .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:none}
+    .nav-logo-text{font-family:var(--font-main);font-weight:700;font-size:1.4rem;letter-spacing:-0.02em;color:var(--white)}
+    .nav-logo-text span{color:var(--purple-bright)}
+    .nav-links{display:flex;align-items:center;gap:40px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.875rem;font-weight:500;letter-spacing:0.02em;transition:color 0.3s;cursor:none;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--purple-bright);transform:scaleX(0);transition:transform 0.3s var(--ease-smooth);transform-origin:left}
+    .nav-links a:hover{color:var(--white)} .nav-links a:hover::after{transform:scaleX(1)}
+    .nav-cta{background:linear-gradient(135deg,var(--purple-vivid),var(--purple-bright))!important;color:var(--white)!important;padding:10px 24px!important;border-radius:100px;font-weight:600!important;transition:all 0.3s var(--ease-smooth)!important;box-shadow:0 0 20px rgba(139,47,201,0.4)}
+    .nav-cta::after{display:none!important} .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 0 40px rgba(139,47,201,0.7)!important}
+    #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    #particles-canvas{position:absolute;inset:0;width:100%;height:100%}
+    .hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(107,33,168,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(107,33,168,0.05) 1px,transparent 1px);background-size:60px 60px;animation:gridShift 20s linear infinite}
+    @keyframes gridShift{from{transform:translateY(0)}to{transform:translateY(60px)}}
+    .hero-glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+    .hero-glow-1{width:600px;height:600px;background:radial-gradient(circle,rgba(107,33,168,0.35) 0%,transparent 70%);top:-100px;left:-100px;animation:glowFloat1 8s ease-in-out infinite}
+    .hero-glow-2{width:500px;height:500px;background:radial-gradient(circle,rgba(6,182,212,0.2) 0%,transparent 70%);bottom:-100px;right:-100px;animation:glowFloat2 10s ease-in-out infinite}
+    .hero-glow-3{width:300px;height:300px;background:radial-gradient(circle,rgba(168,85,247,0.25) 0%,transparent 70%);top:50%;right:20%;animation:glowFloat3 6s ease-in-out infinite}
+    @keyframes glowFloat1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.1)}}
+    @keyframes glowFloat2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,-20px) scale(1.05)}}
+    @keyframes glowFloat3{0%,100%{transform:translateY(0);opacity:0.6}50%{transform:translateY(-20px);opacity:1}}
+    .hero-content{position:relative;z-index:10;text-align:center;max-width:1000px;padding:0 24px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(107,33,168,0.2);border:1px solid rgba(168,85,247,0.3);padding:8px 20px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple-light);margin-bottom:28px;animation:fadeInUp 0.8s var(--ease-smooth) both}
+    .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--purple-bright);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(168,85,247,0.6)}50%{opacity:0.7;box-shadow:0 0 0 8px rgba(168,85,247,0)}}
+    .hero-title{font-family:var(--font-main);font-size:clamp(3rem,8vw,6.5rem);font-weight:800;line-height:1;letter-spacing:-0.04em;margin-bottom:24px;animation:fadeInUp 0.8s 0.2s var(--ease-smooth) both}
+    .hero-title .line-1{display:block;color:var(--white)}
+    .hero-title .line-2{display:block;background:linear-gradient(135deg,var(--purple-bright) 0%,var(--teal-vivid) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-title .line-3{display:block;color:rgba(255,255,255,0.9)}
+    .hero-subtitle{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto 48px;line-height:1.8;font-weight:400;animation:fadeInUp 0.8s 0.4s var(--ease-smooth) both}
+    .hero-buttons{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;animation:fadeInUp 0.8s 0.6s var(--ease-smooth) both}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--purple-vivid),var(--purple-bright));color:var(--white);text-decoration:none;padding:16px 36px;border-radius:100px;font-weight:700;font-size:0.95rem;letter-spacing:0.02em;border:none;cursor:none;position:relative;overflow:hidden;transition:all 0.3s var(--ease-smooth);box-shadow:0 0 30px rgba(139,47,201,0.5),inset 0 1px 0 rgba(255,255,255,0.2)}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);opacity:0;transition:opacity 0.3s}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(139,47,201,0.8),inset 0 1px 0 rgba(255,255,255,0.2)} .btn-primary:hover::before{opacity:1}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,0.9);text-decoration:none;padding:15px 36px;border-radius:100px;font-weight:600;font-size:0.95rem;border:1px solid rgba(255,255,255,0.15);cursor:none;transition:all 0.3s var(--ease-smooth);backdrop-filter:blur(10px)}
+    .btn-secondary:hover{border-color:var(--purple-bright);color:var(--white);background:rgba(168,85,247,0.1);transform:translateY(-3px)}
+    .hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeInUp 1s 1s var(--ease-smooth) both;z-index:10}
+    .hero-scroll span{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+    .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,rgba(168,85,247,0.6),transparent);animation:scrollDrop 2s ease-in-out infinite}
+    @keyframes scrollDrop{0%{transform:scaleY(0);transform-origin:top;opacity:0}50%{transform:scaleY(1);transform-origin:top;opacity:1}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
+    .marquee-section{padding:28px 0;border-top:1px solid rgba(168,85,247,0.1);border-bottom:1px solid rgba(168,85,247,0.1);background:rgba(107,33,168,0.05);overflow:hidden}
+    .marquee-track{display:flex;align-items:center;gap:60px;animation:marqueeScroll 25s linear infinite;white-space:nowrap}
+    @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .marquee-item{display:flex;align-items:center;gap:12px;font-family:var(--font-main);font-weight:600;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);flex-shrink:0}
+    .marquee-item-dot{width:4px;height:4px;border-radius:50%;background:var(--purple-vivid)}
+    section{padding:120px 60px}
+    .section-label{display:inline-flex;align-items:center;gap:10px;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--purple-bright);margin-bottom:20px}
+    .section-label-line{width:30px;height:1px;background:var(--purple-bright)}
+    .section-title{font-family:var(--font-main);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em}
+    .section-title .accent{background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .section-desc{color:rgba(255,255,255,0.55);font-size:1.05rem;line-height:1.8;max-width:520px;margin-top:16px}
+    .reveal{opacity:0;transform:translateY(40px);transition:all 0.8s var(--ease-smooth)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:0.1s} .reveal-delay-2{transition-delay:0.2s} .reveal-delay-3{transition-delay:0.3s} .reveal-delay-4{transition-delay:0.4s}
+    #about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto;padding:120px 60px}
+    .about-logo-wrap{position:relative;display:flex;align-items:center;justify-content:center}
+    .about-logo-bg{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(107,33,168,0.3) 0%,transparent 70%);border-radius:50%;animation:logoPulse 4s ease-in-out infinite}
+    @keyframes logoPulse{0%,100%{transform:scale(1);opacity:0.7}50%{transform:scale(1.1);opacity:1}}
+    .about-logo-ring{position:absolute;inset:-20px;border:1px solid rgba(168,85,247,0.2);border-radius:50%;animation:ringRotate 15s linear infinite}
+    .about-logo-ring::before{content:'';position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--purple-bright);box-shadow:0 0 12px var(--purple-bright)}
+    @keyframes ringRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .about-stats{position:absolute;bottom:-20px;right:-20px;background:rgba(20,0,35,0.9);backdrop-filter:blur(20px);border:1px solid rgba(168,85,247,0.2);border-radius:16px;padding:20px 24px;z-index:10}
+    .about-stat-number{font-family:var(--font-main);font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .about-stat-label{font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em}
+    .about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+    .about-tag{background:rgba(107,33,168,0.2);border:1px solid rgba(168,85,247,0.2);color:var(--purple-light);padding:6px 16px;border-radius:100px;font-size:0.8rem;font-weight:600}
+    #services{max-width:1200px;margin:0 auto;padding:120px 60px}
+    .services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .service-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:24px;padding:36px 32px;position:relative;overflow:hidden;cursor:none;transition:all 0.4s var(--ease-smooth)}
+    .service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,33,168,0.1) 0%,transparent 60%);opacity:0;transition:opacity 0.4s}
+    .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-core));transform:scaleX(0);transition:transform 0.4s var(--ease-smooth);transform-origin:left}
+    .service-card:hover{border-color:rgba(168,85,247,0.3);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(168,85,247,0.1)}
+    .service-card:hover::before{opacity:1} .service-card:hover::after{transform:scaleX(1)}
+    .service-card.featured{background:linear-gradient(135deg,rgba(107,33,168,0.25) 0%,rgba(6,182,212,0.08) 100%);border-color:rgba(168,85,247,0.3)}
+    .service-number{font-family:var(--font-main);font-size:0.7rem;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.2);margin-bottom:24px}
+    .service-icon{width:56px;height:56px;background:rgba(107,33,168,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:20px;transition:transform 0.3s var(--ease-spring)}
+    .service-card:hover .service-icon{transform:scale(1.1) rotate(-5deg)}
+    .service-title{font-family:var(--font-main);font-size:1.25rem;font-weight:700;margin-bottom:12px;line-height:1.3}
+    .service-desc{color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.7}
+    .service-link{display:inline-flex;align-items:center;gap:6px;color:var(--purple-light);font-size:0.85rem;font-weight:600;text-decoration:none;margin-top:24px;transition:gap 0.3s;cursor:none}
+    .service-link:hover{gap:12px}
+    #stats{background:rgba(107,33,168,0.08);border-top:1px solid rgba(168,85,247,0.1);border-bottom:1px solid rgba(168,85,247,0.1);padding:80px 60px}
+    .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+    .stat-item{text-align:center;padding:20px}
+    .stat-number{font-family:var(--font-main);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1;background:linear-gradient(135deg,var(--white),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+    .stat-suffix{background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-label{color:rgba(255,255,255,0.5);font-size:0.9rem;font-weight:500;letter-spacing:0.05em}
+    #process{max-width:1200px;margin:0 auto;padding:120px 60px}
+    .process-header{text-align:center;margin-bottom:80px}
+    .process-header .section-desc{margin:16px auto 0;text-align:center}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+    .process-steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--purple-vivid),var(--teal-core),transparent)}
+    .process-step{text-align:center;padding:0 20px;position:relative}
+    .step-number-wrap{position:relative;display:inline-flex;margin-bottom:28px}
+    .step-circle{width:80px;height:80px;background:var(--purple-dark);border:2px solid rgba(168,85,247,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all 0.4s var(--ease-smooth);cursor:none}
+    .process-step:hover .step-circle{border-color:var(--purple-bright);background:rgba(107,33,168,0.3);box-shadow:0 0 30px rgba(168,85,247,0.3)}
+    .step-num{font-family:var(--font-main);font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .step-title{font-family:var(--font-main);font-weight:700;font-size:1rem;margin-bottom:10px}
+    .step-desc{color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.6}
+    #marketing{position:relative;overflow:hidden;padding:120px 60px}
+    .marketing-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,33,168,0.15) 0%,rgba(6,182,212,0.05) 100%)}
+    .marketing-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+    .marketing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .mini-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px;transition:all 0.3s var(--ease-smooth);cursor:none}
+    .mini-card:hover{background:rgba(107,33,168,0.15);border-color:rgba(168,85,247,0.3);transform:translateY(-4px)}
+    .mini-card-icon{font-size:1.5rem;margin-bottom:12px}
+    .mini-card-title{font-family:var(--font-main);font-weight:700;font-size:0.9rem;margin-bottom:6px}
+    .mini-card-desc{color:rgba(255,255,255,0.45);font-size:0.8rem;line-height:1.5}
+    .mini-card.accent{background:linear-gradient(135deg,rgba(107,33,168,0.3),rgba(6,182,212,0.1));border-color:rgba(168,85,247,0.3)}
+    #testimonials{max-width:1200px;margin:0 auto;padding:120px 60px}
+    .testimonials-header{text-align:center;margin-bottom:64px}
+    .testimonials-header .section-desc{margin:16px auto 0;text-align:center}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .testimonial-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:32px;transition:all 0.4s var(--ease-smooth);cursor:none}
+    .testimonial-card:hover{border-color:rgba(168,85,247,0.25);transform:translateY(-6px);background:rgba(107,33,168,0.08)}
+    .testimonial-stars{color:#F59E0B;font-size:0.9rem;margin-bottom:20px;letter-spacing:2px}
+    .testimonial-text{color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.8;margin-bottom:28px;font-style:italic}
+    .testimonial-author{display:flex;align-items:center;gap:14px}
+    .author-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--purple-vivid),var(--teal-core));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0}
+    .author-name{font-weight:700;font-size:0.9rem;line-height:1.2}
+    .author-role{color:rgba(255,255,255,0.45);font-size:0.8rem}
+    #cta{padding:120px 60px;position:relative;overflow:hidden}
+    .cta-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(59,0,112,0.6) 0%,rgba(13,0,16,0.8) 50%,rgba(6,182,212,0.1) 100%)}
+    .cta-glow{position:absolute;width:800px;height:400px;background:radial-gradient(ellipse,rgba(107,33,168,0.3) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+    .cta-inner{position:relative;z-index:2;text-align:center;max-width:700px;margin:0 auto}
+    .cta-title{font-family:var(--font-main);font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:20px}
+    .cta-desc{color:rgba(255,255,255,0.6);font-size:1.05rem;line-height:1.8;margin-bottom:48px}
+    .cta-buttons{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+    #contact{max-width:1200px;margin:0 auto;padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .contact-detail{display:flex;align-items:center;gap:16px;margin-top:32px;padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;transition:all 0.3s var(--ease-smooth)}
+    .contact-detail:hover{border-color:rgba(168,85,247,0.25);background:rgba(107,33,168,0.08)}
+    .contact-icon{width:44px;height:44px;border-radius:12px;background:rgba(107,33,168,0.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .contact-label{font-size:0.75rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+    .contact-value{font-weight:600;font-size:0.95rem}
+    .contact-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:24px;padding:40px}
+    .form-group{margin-bottom:20px}
+    .form-group label{display:block;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;color:rgba(255,255,255,0.6);margin-bottom:8px}
+    .form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;color:var(--white);font-family:var(--font-body);font-size:0.95rem;outline:none;transition:all 0.3s}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.2)}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:rgba(168,85,247,0.5);background:rgba(107,33,168,0.1);box-shadow:0 0 0 3px rgba(168,85,247,0.1)}
+    .form-group select option{background:var(--purple-dark)}
+    .form-group textarea{height:140px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--purple-vivid),var(--purple-bright));color:var(--white);border:none;border-radius:12px;font-family:var(--font-body);font-size:1rem;font-weight:700;cursor:none;transition:all 0.3s var(--ease-smooth);box-shadow:0 0 30px rgba(139,47,201,0.4)}
+    .form-submit:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(139,47,201,0.7)}
+    footer{padding:60px;border-top:1px solid rgba(255,255,255,0.06)}
+    .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+    .footer-brand p{color:rgba(255,255,255,0.45);font-size:0.875rem;line-height:1.8;margin-top:16px;max-width:260px}
+    .footer-socials{display:flex;gap:12px;margin-top:24px}
+    .social-btn{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);text-decoration:none;font-size:1rem;transition:all 0.3s;cursor:none}
+    .social-btn:hover{background:rgba(107,33,168,0.3);border-color:rgba(168,85,247,0.4);color:var(--white);transform:translateY(-3px)}
+    .footer-col h4{font-family:var(--font-main);font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;color:rgba(255,255,255,0.9)}
+    .footer-col ul{list-style:none} .footer-col ul li{margin-bottom:10px}
+    .footer-col ul li a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:0.875rem;transition:color 0.3s;cursor:none}
+    .footer-col ul li a:hover{color:var(--purple-light)}
+    .footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:30px;border-top:1px solid rgba(255,255,255,0.06)}
+    .footer-bottom p{color:rgba(255,255,255,0.3);font-size:0.8rem}
+    .footer-bottom span{color:var(--purple-bright)}
+    @media(max-width:1024px){section{padding:80px 32px}#about,#contact{grid-template-columns:1fr;gap:48px;padding:80px 32px}.services-grid{grid-template-columns:repeat(2,1fr)}.stats-inner{grid-template-columns:repeat(2,1fr)}.process-steps{grid-template-columns:repeat(2,1fr);gap:40px}.process-steps::before{display:none}.testimonials-grid{grid-template-columns:1fr}.marketing-inner{grid-template-columns:1fr;gap:48px}}
+    @media(max-width:768px){
+      section{padding:40px 16px}
+      #about,#contact,#services,#process,#testimonials{padding:40px 16px}
+      .services-header{flex-direction:column;gap:16px;align-items:flex-start}
+      .form-row{grid-template-columns:1fr}
+      #hero{padding-top:100px}
+      
+      .services-grid, .stats-inner, .process-steps, .testimonials-grid, .marketing-cards {
+        display: flex !important; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px !important; padding-bottom: 24px; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      }
+      .services-grid::-webkit-scrollbar, .stats-inner::-webkit-scrollbar, .process-steps::-webkit-scrollbar, .testimonials-grid::-webkit-scrollbar, .marketing-cards::-webkit-scrollbar { display: none; }
+      
+      .service-card, .stat-item, .process-step, .testimonial-card, .marketing-card { scroll-snap-align: center; flex: 0 0 85%; max-width: 85%; }
+      .about-logo-wrap video { width: 100% !important; max-width: 300px; height: auto !important; aspect-ratio: 1/1; }
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    
+    /* ROI Calculator Premium UI */
+    .roi-container{position:relative;background:rgba(13,0,16,0.6);border:1px solid rgba(168,85,247,0.3);border-radius:32px;padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:50px;width:100%;max-width:960px;text-align:left;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(168,85,247,0.1);z-index:2;overflow:hidden}
+    .roi-container::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(168,85,247,0.1) 0%,transparent 50%);z-index:-1;animation:pulse 6s infinite}
+    .roi-control{display:flex;flex-direction:column;justify-content:center}
+    .roi-control label{font-family:var(--font-main);font-size:1.2rem;font-weight:700;margin-bottom:24px;color:var(--white)}
+    .roi-control input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:8px;background:rgba(255,255,255,0.05);border-radius:100px;outline:none;margin-bottom:30px;position:relative;box-shadow:inset 0 2px 4px rgba(0,0,0,0.5)}
+    .roi-control input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--teal-vivid),var(--purple-bright));cursor:pointer;box-shadow:0 0 20px rgba(6,182,212,0.6);border:3px solid var(--white);transition:transform 0.2s var(--ease-smooth)}
+    .roi-control input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.2);box-shadow:0 0 30px rgba(6,182,212,0.9)}
+    .roi-result{background:linear-gradient(135deg,rgba(107,33,168,0.3),rgba(6,182,212,0.15));padding:40px;border-radius:24px;border:1px solid rgba(168,85,247,0.4);text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 15px 35px rgba(0,0,0,0.4)}
+    .roi-result h3{font-family:var(--font-main);font-size:1.3rem;margin-bottom:15px;color:var(--teal-vivid)}
+    .roi-potential{font-size:2rem;font-weight:800;margin-bottom:20px;color:var(--white);text-shadow:0 0 20px rgba(168,85,247,0.8)}
+    .roi-result p{color:rgba(255,255,255,0.7);font-size:1rem;margin-bottom:25px;line-height:1.6}
+    @media(max-width:768px){.roi-container{grid-template-columns:1fr;gap:30px;padding:30px}}
+    
+    /* FAQ Accordion Premium UI */
+    .faq-container{display:flex;flex-direction:column;gap:16px;width:100%}
+    .faq-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;transition:all 0.4s var(--ease-smooth)}
+    .faq-item:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15)}
+    .faq-item.active{background:linear-gradient(135deg,rgba(107,33,168,0.15),rgba(6,182,212,0.05));border-color:var(--purple-bright);box-shadow:0 10px 30px rgba(107,33,168,0.2)}
+    .faq-question{width:100%;text-align:left;padding:28px 30px;background:none;border:none;color:var(--white);font-family:var(--font-main);font-size:1.15rem;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:color 0.3s}
+    .faq-item.active .faq-question{color:var(--teal-vivid)}
+    .faq-icon{font-size:1.8rem;color:rgba(255,255,255,0.5);transition:transform 0.4s var(--ease-smooth), color 0.3s}
+    .faq-item.active .faq-icon{transform:rotate(135deg);color:var(--teal-vivid)}
+    .faq-answer{padding:0 30px;max-height:0;overflow:hidden;transition:all 0.5s var(--ease-smooth);opacity:0}
+    .faq-item.active .faq-answer{padding-bottom:30px;max-height:400px;opacity:1}
+    .faq-answer p{color:rgba(255,255,255,0.7);font-size:1.05rem;line-height:1.7}
+    
+    /* Premium CTA */
+    .premium-cta{position:relative;background:rgba(13,0,16,0.6);border:1px solid rgba(168,85,247,0.3);border-radius:32px;padding:60px 40px;text-align:center;max-width:960px;width:100%;backdrop-filter:blur(24px);box-shadow:0 30px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(168,85,247,0.1);z-index:2;overflow:hidden}
+    .premium-cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(6,182,212,0.1) 0%,transparent 50%);z-index:-1;animation:pulse 6s infinite reverse}
+    .premium-cta .btn-primary{box-shadow:0 0 30px rgba(168,85,247,0.5);animation:pulse-button 3s infinite}
+    @keyframes pulse-button{0%,100%{box-shadow:0 0 30px rgba(168,85,247,0.5);transform:scale(1)}50%{box-shadow:0 0 50px rgba(168,85,247,0.8);transform:scale(1.02)}}
+    /* Preloader */
+    #preloader { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--purple-deep); z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: transform 0.8s var(--ease-smooth), opacity 0.8s; }
+    #preloader.hidden { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+    .loader-logo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; animation: pulse-glow 2s infinite; margin-bottom: 20px; }
+    .loader-text { font-family: var(--font-main); font-size: 1.5rem; font-weight: 700; color: var(--white); letter-spacing: 2px; }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(168,85,247,0.4); transform: scale(1); } 50% { box-shadow: 0 0 50px rgba(6,182,212,0.8); transform: scale(1.1); } }
+    
+    /* Swiper Styling */
+    .swiper-pagination-bullet { background: rgba(255,255,255,0.4); }
+    .swiper-pagination-bullet-active { background: var(--purple-bright); box-shadow: 0 0 10px var(--purple-bright); }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="assets/images/logo2type.jpeg" alt="2Type Logo" class="loader-logo"/>
+    <div class="loader-text">2TYPE</div>
+  </div>
+
+  <!-- Particles Background -->
+  <div id="tsparticles" style="position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:-10; pointer-events:none;"></div>
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="assets/images/logo2type.jpeg" alt="2Type Logo" style="width:44px; height:44px; border-radius:50%; object-fit:cover;"/>
+      <span class="nav-logo-text">2<span>Type</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="#marketing">Marketing</a></li>
+      <li><a href="#contact">Contato</a></li>
+      <li><a href="#contact" class="nav-cta">Começar Projeto →</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu de navegação">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="particles-canvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><div class="hero-badge-dot"></div>Tecnologia · Marketing · Resultados</div>
+      <h1 class="hero-title">
+        <span class="line-1">Nós Criamos</span>
+        <span class="line-2">o Futuro Digital</span>
+        <span class="line-3">do Seu Negócio</span>
+      </h1>
+      <p class="hero-subtitle">Sites, sistemas, aplicativos e estratégias de marketing que transformam ideias em resultados. Do conceito ao sucesso — somos a 2Type.</p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn-primary">Ver Serviços <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a href="#contact" class="btn-secondary">Fale Conosco</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Desenvolvimento Web</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Apps Mobile</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Design & Identidade Visual</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Marketing Digital</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Sistemas Sob Medida</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>SEO &amp; Performance</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Consultoria Estratégica</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Gestão de Tráfego</div>
+      
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Desenvolvimento Web</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Apps Mobile</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Design & Identidade Visual</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Marketing Digital</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Sistemas Sob Medida</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>SEO &amp; Performance</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Consultoria Estratégica</div>
+      <div class="marquee-item"><div class="marquee-item-dot"></div>Gestão de Tráfego</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about">
+    <div class="about-visual reveal">
+      <div class="about-logo-wrap">
+        <div class="about-logo-bg"></div>
+        <div class="about-logo-ring"></div>
+        <video src="assets/video/videoloop.mp4" autoplay loop muted playsinline style="position:relative; z-index:2; width:300px; height:300px; object-fit:cover; border-radius:50%; box-shadow:0 0 40px rgba(107,33,168,0.6); border: 2px solid rgba(168,85,247,0.3);"></video>
+        <div class="about-stats">
+          <div class="about-stat-number">+15</div>
+          <div class="about-stat-label">Projetos Entregues</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal reveal-delay-2">
+      <div class="section-label"><div class="section-label-line"></div>Sobre a 2Type</div>
+      <h2 class="section-title">Tecnologia que<br/><span class="accent">transforma negócios</span></h2>
+      <p class="section-desc">Somos uma empresa full-stack de tecnologia e marketing digital. Unimos criatividade, estratégia e código para construir soluções que crescem com o seu negócio. Da startup ao enterprise — nosso compromisso é com o seu resultado.</p>
+      <p class="section-desc" style="margin-top:16px">Não vendemos projetos, construímos parcerias. Cada cliente é único e merece uma solução personalizada que gere impacto real.</p>
+      <div class="about-tags">
+        <span class="about-tag">🚀 Alta Performance</span>
+        <span class="about-tag">🎯 Foco em Resultados</span>
+        <span class="about-tag">💡 Inovação Constante</span>
+        <span class="about-tag">🤝 Suporte Dedicado</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="stats-inner">
+      <div class="stat-item reveal"><div class="stat-number"><span class="counter" data-target="15">0</span><span class="stat-suffix">+</span></div><div class="stat-label">Projetos Entregues</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-number"><span class="counter" data-target="10">0</span><span class="stat-suffix">+</span></div><div class="stat-label">Clientes Atendidos</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="stat-number"><span class="counter" data-target="100">0</span><span class="stat-suffix">%</span></div><div class="stat-label">Taxa de Satisfação</div></div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div id="services">
+    <div class="services-header">
+      <div>
+        <div class="section-label reveal"><div class="section-label-line"></div>O que fazemos</div>
+        <h2 class="section-title reveal reveal-delay-1">Soluções completas para<br/><span class="accent">sua presença digital</span></h2>
+      </div>
+      <p class="section-desc reveal reveal-delay-2" style="max-width:340px;text-align:right">Tudo que seu negócio precisa para crescer online, em um único lugar.</p>
+    </div>
+      <div class="services-grid">
+      <div class="service-card reveal"><div class="service-number">01</div><div class="service-icon">🌐</div><div class="service-title">Desenvolvimento Web</div><p class="service-desc">Sites institucionais, landing pages e portais web com foco em performance, SEO e conversão. Design exclusivo que representa sua marca.</p><a href="servicos.html" class="service-link" data-service="Desenvolvimento Web">Saiba mais →</a></div>
+      <div class="service-card featured reveal reveal-delay-1"><div class="service-number">02</div><div class="service-icon" style="background:linear-gradient(135deg,rgba(107,33,168,0.5),rgba(6,182,212,0.3))">📱</div><div class="service-title">Apps Mobile</div><p class="service-desc">Aplicativos iOS e Android nativos ou híbridos. Da ideia ao deployment nas lojas, com UX que encanta e retém usuários.</p><a href="servicos.html" class="service-link" data-service="App Mobile">Saiba mais →</a></div>
+      <div class="service-card reveal reveal-delay-2"><div class="service-number">03</div><div class="service-icon">🎨</div><div class="service-title">Design & Identidade</div><p class="service-desc">Criação de identidades visuais completas, marcas, UI/UX de aplicativos e peças criativas para destacar sua empresa.</p><a href="servicos.html" class="service-link" data-service="Design & Identidade Visual">Saiba mais →</a></div>
+      <div class="service-card reveal reveal-delay-3"><div class="service-number">04</div><div class="service-icon">⚙️</div><div class="service-title">Sistemas Sob Medida</div><p class="service-desc">ERPs, CRMs, automações e sistemas integrados para otimizar processos, reduzir custos e escalar operações.</p><a href="servicos.html" class="service-link" data-service="Sistema Sob Medida">Saiba mais →</a></div>
+      <div class="service-card reveal reveal-delay-4"><div class="service-number">05</div><div class="service-icon">📈</div><div class="service-title">Marketing Digital</div><p class="service-desc">Gestão de tráfego pago (Meta Ads, Google Ads), estratégias de conteúdo e campanhas que geram leads e vendas reais.</p><a href="servicos.html" class="service-link" data-service="Marketing Digital">Saiba mais →</a></div>
+      <div class="service-card reveal reveal-delay-5"><div class="service-number">06</div><div class="service-icon">🎯</div><div class="service-title">Estratégia de Vendas</div><p class="service-desc">Consultoria completa em funis de vendas, copywriting, automações de CRM e treinamento de equipes comerciais.</p><a href="servicos.html" class="service-link" data-service="Marketing Digital">Saiba mais →</a></div>
+      <div class="service-card reveal reveal-delay-1"><div class="service-number">07</div><div class="service-icon">💡</div><div class="service-title">Consultoria Tech</div><p class="service-desc">Diagnóstico tecnológico, arquitetura de soluções, squads dedicados e mentoria para acelerar a transformação digital.</p><a href="servicos.html" class="service-link" data-service="Consultoria">Saiba mais →</a></div>
+    </div>
+  </div>
+
+  <!-- ROI CALCULATOR -->
+  <div id="roi" style="padding: 100px 5%; background: var(--bg-card); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+    <div class="section-label reveal"><div class="section-label-line"></div>Simulador de Crescimento<div class="section-label-line"></div></div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 20px;">Descubra seu <span class="accent">potencial</span></h2>
+    <p class="section-desc reveal reveal-delay-2" style="max-width: 600px; margin: 0 auto 40px auto;">Arraste a barra para selecionar seu número de clientes atual, e veja o quanto as estratégias da 2Type podem escalar seus resultados.</p>
+    
+    <div class="roi-container reveal reveal-delay-3">
+      <div class="roi-control">
+        <label for="clientsRange">Quantos clientes você atende hoje?</label>
+        <input type="range" id="clientsRange" min="10" max="500" step="10" value="50">
+        <div class="roi-current-value"><span id="clientsValue" class="accent" style="font-size: 2.5rem; font-weight: 700;">50</span> <span style="color:rgba(255,255,255,0.6)">clientes/mês</span></div>
+      </div>
+      <div class="roi-result">
+        <h3>Potencial com a 2Type 🚀</h3>
+        <div class="roi-potential">Até <span id="potentialValue" class="accent">150</span> clientes/mês</div>
+        <p>Com um ecossistema digital otimizado e tráfego qualificado, podemos triplicar sua base atual com alta conversão.</p>
+        <a href="#contact" class="btn-primary" style="width:100%; justify-content:center;">Quero esse crescimento →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div id="process">
+    <div class="process-header">
+      <div class="section-label reveal" style="justify-content:center"><div class="section-label-line"></div>Como Trabalhamos<div class="section-label-line"></div></div>
+      <h2 class="section-title reveal reveal-delay-1">Um processo pensado<br/><span class="accent">para entregar resultados</span></h2>
+      <p class="section-desc reveal reveal-delay-2">Da primeira conversa à entrega — metodologia clara, comunicação transparente e foco total no seu sucesso.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">01</span></div></div><div class="step-title">Descoberta</div><p class="step-desc">Entendemos seu negócio, objetivos, público e mercado para criar a estratégia certa.</p></div>
+      <div class="process-step reveal reveal-delay-1"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">02</span></div></div><div class="step-title">Estratégia</div><p class="step-desc">Planejamos a arquitetura da solução, fluxos e tecnologias mais adequadas ao seu caso.</p></div>
+      <div class="process-step reveal reveal-delay-2"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">03</span></div></div><div class="step-title">Execução</div><p class="step-desc">Desenvolvemos com sprints, entregas contínuas e revisões colaborativas com sua equipe.</p></div>
+      <div class="process-step reveal reveal-delay-3"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">04</span></div></div><div class="step-title">Crescimento</div><p class="step-desc">Monitoramos métricas, otimizamos continuamente e escalamos junto com seu negócio.</p></div>
+    </div>
+  </div>
+
+  <!-- MARKETING -->
+  <div id="marketing">
+    <div class="marketing-bg"></div>
+    <div class="marketing-inner">
+      <div class="reveal">
+        <div class="section-label"><div class="section-label-line"></div>Marketing Digital</div>
+        <h2 class="section-title">Sua marca presente<br/>onde seu <span class="accent">cliente está</span></h2>
+        <p class="section-desc">Desenvolvemos estratégias completas de marketing digital integradas à tecnologia. Não é só anunciar — é criar ecossistemas de aquisição e retenção que geram receita recorrente.</p>
+        <div style="margin-top:36px"><a href="#contact" class="btn-primary">Quero uma Estratégia →</a></div>
+      </div>
+      <div class="marketing-cards reveal reveal-delay-2">
+        <div class="mini-card accent"><div class="mini-card-icon">🎯</div><div class="mini-card-title">Tráfego Pago</div><div class="mini-card-desc">Meta Ads, Google Ads, TikTok Ads com ROAS otimizado</div></div>
+        <div class="mini-card"><div class="mini-card-icon">✍️</div><div class="mini-card-title">Conteúdo &amp; SEO</div><div class="mini-card-desc">Estratégia orgânica que gera tráfego qualificado 24/7</div></div>
+        <div class="mini-card"><div class="mini-card-icon">📧</div><div class="mini-card-title">Email &amp; CRM</div><div class="mini-card-desc">Automações que nutrem leads e aumentam LTV</div></div>
+        <div class="mini-card accent"><div class="mini-card-icon">📊</div><div class="mini-card-title">Analytics &amp; BI</div><div class="mini-card-desc">Dados em tempo real para decisões mais inteligentes</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div id="testimonials">
+    <div class="testimonials-header">
+      <div class="section-label reveal" style="justify-content:center"><div class="section-label-line"></div>Depoimentos<div class="section-label-line"></div></div>
+      <h2 class="section-title reveal reveal-delay-1">O que dizem<br/><span class="accent">nossos clientes</span></h2>
+      <p class="section-desc reveal reveal-delay-2">Histórias reais de negócios que transformamos juntos.</p>
+    </div>
+    <div class="swiper testimonials-swiper reveal">
+      <div class="swiper-wrapper" style="padding-bottom: 50px;">
+        <div class="swiper-slide">
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Cara, bom dia, estou passando por aqui para agradecer pela dedicação e empenho, o site ficou incrível,  bem interativo e dividido e valeu mano por entregar tão rapido e ser tão atento aos detalhes! Que Deus te abençoe hoje e sempre! Você é fera ❤️"</p><div class="testimonial-author"><img src="assets/images/clients/kaleologo.jpeg" alt="Kaleo" class="author-avatar" style="object-fit:contain; background:transparent"/><div><div class="author-name">Kaleo</div><div class="author-role">Cliente</div></div></div></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Nossas vendas decolaram com a estrutura construída pela 2Type. Além do design impecável que valorizou nossos doces, a estratégia de marketing digital fez toda a diferença no nosso crescimento diário."</p><div class="testimonial-author"><img src="assets/images/clients/luhcandylogo.jpg" alt="Luh Candy" class="author-avatar" style="object-fit:contain; background:transparent"/><div><div class="author-name">Luh</div><div class="author-role">Luh Candy</div></div></div></div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Profissionalismo impecável. A solução tecnológica que desenvolveram otimizou meus processos e hoje economizo dezenas de horas. Recomendo de olhos fechados, a 2Type entrega o que promete!"</p><div class="testimonial-author"><img src="assets/images/clients/mizaellogo.png" alt="Mizael" class="author-avatar" style="object-fit:contain; background:transparent"/><div><div class="author-name">Mizael</div><div class="author-role">Mizael</div></div></div></div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" style="padding: 100px 5%; max-width: 800px; margin: 0 auto;">
+    <div class="section-label reveal" style="justify-content:center"><div class="section-label-line"></div>Dúvidas Comuns<div class="section-label-line"></div></div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align: center; margin-bottom: 40px;">Perguntas <span class="accent">Frequentes</span></h2>
+    <div class="faq-container reveal reveal-delay-2">
+      <div class="faq-item">
+        <button class="faq-question">Quanto custa para criar um site, sistema ou app? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Cada projeto é único e pensado no seu retorno (ROI). Temos pacotes iniciais a partir de escopos enxutos e projetos mais robustos. Na 2Type, você não paga por "apenas um site", mas por um ecossistema que vai te gerar receita. Agende uma conversa gratuita para orçarmos com precisão.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Quanto tempo leva para entregar o projeto? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Landing pages e sites institucionais levam de 15 a 30 dias. Aplicativos e sistemas complexos podem levar de 2 a 4 meses. Nosso modelo é ágil: fazemos entregas parciais para você já começar a testar rápido no mercado.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Vocês dão suporte após a entrega? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Sim! Diferente de freelancers, nós somos uma parceira de tecnologia. Oferecemos planos de manutenção, hospedagem em nuvem de alta performance e suporte contínuo para você nunca ficar na mão.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Por que escolher a 2Type ao invés de ferramentas prontas? <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Ferramentas prontas (Wix, Shopify, etc) te deixam engessado, lento e parecido com todo mundo. Nós construímos soluções sob medida com performance superior (carregamento ultra-rápido) e design premium focado em alta conversão. Isso te destaca e vende muito mais.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEAD MAGNET CTA -->
+  <div id="cta" style="padding: 100px 5%; display: flex; justify-content: center; align-items: center;">
+    <div class="premium-cta reveal">
+      <div style="position: relative; z-index: 2;">
+        <div class="section-label" style="justify-content:center;margin-bottom:20px"><div class="section-label-line"></div>Presente Exclusivo<div class="section-label-line"></div></div>
+        <h2 class="cta-title" style="font-size: clamp(2rem, 4vw, 3rem); font-family: var(--font-main); font-weight: 800; margin-bottom: 20px;">Diagnóstico Gratuito da<br/>sua <span class="accent">Presença Digital</span></h2>
+        <p class="cta-desc" style="max-width: 600px; margin: 0 auto 30px auto; color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.6;">Ainda não tem certeza se precisa de um novo site, app ou campanha? Solicite um raio-x completo do seu negócio. Nossa equipe vai analisar sua empresa e entregar um plano de ação sem custo.</p>
+        <div class="cta-buttons" style="display: flex; justify-content: center;">
+          <a href="https://wa.me/5512987005369?text=Ol%C3%A1%2C%20gostaria%20de%20receber%20meu%20diagn%C3%B3stico%20digital%20gratuito%20da%20minha%20empresa!" class="btn-primary" target="_blank" style="font-size: 1.1rem; padding: 18px 36px; box-shadow: 0 10px 30px rgba(107,33,168,0.5);">🎁 Solicitar Meu Diagnóstico Gratuito</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact">
+    <div class="contact-info reveal">
+      <div class="section-label"><div class="section-label-line"></div>Contato</div>
+      <h2 class="section-title">Fale com a<br/><span class="accent">gente agora</span></h2>
+      <p class="section-desc">Sem enrolação. Conta seu projeto e a gente responde em até 24h com um plano personalizado.</p>
+      <div class="contact-detail"><div class="contact-icon">📧</div><div><div class="contact-label">E-mail</div><div class="contact-value">2typetecnologia@gmail.com</div></div></div>
+      <div class="contact-detail"><div class="contact-icon">💬</div><div><div class="contact-label">WhatsApp</div><div class="contact-value">(12) 98700-5369</div></div></div>
+      <div class="contact-detail"><div class="contact-icon">📍</div><div><div class="contact-label">Localização</div><div class="contact-value">Brasil · Atendimento Remoto</div></div></div>
+    </div>
+    <div class="contact-form reveal reveal-delay-2">
+      <h3 style="font-family:var(--font-main);font-size:1.3rem;font-weight:700;margin-bottom:28px">Solicite um orçamento</h3>
+      <form id="contact-form" onsubmit="handleFormSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Nome</label><input type="text" name="Nome" id="name" placeholder="Seu nome" required /></div>
+          <div class="form-group"><label for="company">Empresa</label><input type="text" name="Empresa" id="company" placeholder="Nome da empresa" /></div>
+        </div>
+        <div class="form-group"><label for="email">E-mail</label><input type="email" name="Email" id="email" placeholder="seu@email.com" required /></div>
+        <div class="form-group"><label for="service">Serviço de interesse</label><select name="Serviço" id="service"><option value="">Selecione um serviço</option><option value="Desenvolvimento Web">Desenvolvimento Web</option><option value="App Mobile">App Mobile</option><option value="Design & Identidade Visual">Design & Identidade Visual</option><option value="Sistema Sob Medida">Sistema Sob Medida</option><option value="Marketing Digital">Marketing Digital</option><option value="Consultoria">Consultoria</option><option value="Pacote Completo">Pacote Completo</option></select></div>
+        <div class="form-group"><label for="message">Mensagem</label><textarea name="Mensagem" id="message" placeholder="Conte sobre seu projeto..."></textarea></div>
+        <button type="submit" class="form-submit" id="submit-btn">Enviar Mensagem →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <img src="assets/images/logo2type.jpeg" alt="2Type Logo" style="width:36px; height:36px; border-radius:50%; object-fit:cover;"/>
+          <span class="nav-logo-text">2<span>Type</span></span>
+        </a>
+        <p>Tecnologia e marketing digital que transforma negócios e gera resultados reais.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/2typeofc/" target="_blank" class="social-btn" title="Instagram" aria-label="Visite nosso Instagram">📸</a>
+          <a href="#" class="social-btn" title="LinkedIn" aria-label="Siga-nos no LinkedIn">💼</a>
+          <a href="https://wa.me/5512987005369" target="_blank" class="social-btn" title="WhatsApp" aria-label="Fale conosco pelo WhatsApp">💬</a>
+          <a href="#" class="social-btn" title="YouTube" aria-label="Acompanhe nosso canal no YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Serviços</h4><ul><li><a href="#services">Desenvolvimento Web</a></li><li><a href="#services">Apps Mobile</a></li><li><a href="#services">Design & Identidade</a></li><li><a href="#services">Sistemas</a></li><li><a href="#services">Marketing Digital</a></li><li><a href="#services">Consultoria</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#about">Sobre nós</a></li><li><a href="#process">Como trabalhamos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#contact">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Contato</h4><ul><li><a href="mailto:2typetecnologia@gmail.com">2typetecnologia@gmail.com</a></li><li><a href="https://wa.me/5512987005369">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 <span>2Type</span>. Todos os direitos reservados.</p><p style="font-size:0.75rem">Feito com 💜 pela própria 2Type</p></div>
+  </footer>
+
+  <a href="https://wa.me/5512987005369" class="fab-whatsapp" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <!-- Premium UI CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

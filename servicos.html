@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+  <title>Serviços | Criação de Sites, Apps e Tráfego | 2Type</title>
+  <meta name="title" content="Serviços | Criação de Sites, Apps e Tráfego | 2Type" />
+  <meta name="description" content="Conheça todos os serviços da 2Type: desenvolvimento web, aplicativos móveis (iOS/Android), sistemas complexos e estratégias avançadas de marketing digital e tráfego." />
+  <meta name="keywords" content="serviços web, criação de aplicativos, marketing digital, seo, tráfego pago, desenvolvimento de software, consultoria tech" />
+  <meta name="author" content="2Type" />
+  <link rel="canonical" href="https://www.twotype.com/servicos.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.twotype.com/servicos.html" />
+  <meta property="og:title" content="Nossos Serviços | 2Type" />
+  <meta property="og:description" content="Conheça todos os serviços da 2Type: desenvolvimento web, apps mobile, sistemas e marketing digital." />
+  <meta property="og:image" content="https://www.twotype.com/assets/images/og_image_2type.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+  <style>
+    .services-page{max-width:1200px;margin:0 auto;padding:80px 60px 120px}
+
+    /* Service Full Cards */
+    .service-full{
+      display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+      padding:80px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .service-full:last-child{border-bottom:none}
+    .service-full.reverse{direction:rtl}
+    .service-full.reverse > *{direction:ltr}
+
+    .service-visual{position:relative}
+    .service-visual-box{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:28px;padding:48px;
+      display:flex;flex-direction:column;align-items:center;gap:20px;
+      position:relative;overflow:hidden;
+      transition:all 0.4s;
+    }
+    .service-visual-box::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(107,33,168,0.15) 0%,transparent 60%);
+    }
+    .service-visual-box::after{
+      content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--purple-vivid),var(--teal-core));
+    }
+    .service-big-icon{font-size:4rem;position:relative;z-index:1;line-height:1;filter:drop-shadow(0 0 20px rgba(168,85,247,0.4))}
+    .service-big-num{
+      font-family:var(--font-main);font-size:6rem;font-weight:900;line-height:1;
+      background:linear-gradient(135deg,rgba(107,33,168,0.3),rgba(6,182,212,0.2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;position:absolute;bottom:20px;right:24px;
+      letter-spacing:-0.05em;pointer-events:none;
+    }
+    .service-tech-tags{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+    .service-tech-tag{
+      background:rgba(107,33,168,0.25);border:1px solid rgba(168,85,247,0.25);
+      color:var(--purple-light);padding:5px 14px;border-radius:100px;
+      font-size:0.75rem;font-weight:600;letter-spacing:0.05em;
+    }
+
+    .service-text .section-desc{max-width:100%;margin-top:16px}
+    .service-features{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:12px}
+    .service-features li{
+      display:flex;align-items:flex-start;gap:12px;
+      color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.6;
+    }
+    .service-features li::before{
+      content:'';width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:2px;
+      background:linear-gradient(135deg,var(--purple-vivid),var(--teal-core));
+      display:flex;align-items:center;justify-content:center;font-size:0.6rem;
+      position:relative;
+    }
+    .service-features li::after{content:'✓';position:absolute;margin-left:-18px;color:white;font-size:0.65rem;font-weight:700;margin-top:3px}
+    .feat-check{color:var(--teal-vivid);font-weight:700;flex-shrink:0;font-size:1rem}
+
+    .service-cta-row{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+
+    /* Packages / Pricing hint */
+    .packages-section{padding:80px 0;border-top:1px solid rgba(255,255,255,0.06)}
+    .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+    .pkg-card{
+      background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+      border-radius:24px;padding:36px 28px;position:relative;overflow:hidden;
+      transition:all 0.4s;cursor:none;
+    }
+    .pkg-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-core));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+    .pkg-card:hover{border-color:rgba(168,85,247,0.3);transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,0.4)}
+    .pkg-card:hover::after{transform:scaleX(1)}
+    .pkg-card.featured{background:linear-gradient(135deg,rgba(107,33,168,0.3),rgba(6,182,212,0.08));border-color:rgba(168,85,247,0.4)}
+    .pkg-badge{display:inline-block;background:linear-gradient(135deg,var(--purple-vivid),var(--teal-core));color:white;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:20px}
+    .pkg-name{font-family:var(--font-main);font-size:1.3rem;font-weight:800;margin-bottom:10px}
+    .pkg-desc{color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.6;margin-bottom:24px}
+    .pkg-features{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .pkg-features li{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.7);font-size:0.875rem}
+    .pkg-check{color:var(--teal-vivid);font-weight:700}
+
+    @media(max-width:1024px){.service-full{grid-template-columns:1fr;gap:40px}.service-full.reverse{direction:ltr}}
+    @media(max-width:768px){
+      .services-page{padding:40px 16px 80px}
+      .packages-grid{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+      .packages-grid::-webkit-scrollbar{display:none}
+      .pkg-card{scroll-snap-align:center;flex:0 0 85%;max-width:85%}
+      .service-visual-box{padding:30px}
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo2type.jpeg" alt="2Type Logo" style="width:44px; height:44px; border-radius:50%; object-fit:cover;"/>
+      <span class="nav-logo-text">2<span>Type</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="servicos.html" class="active">Serviços</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="index.html#marketing">Marketing</a></li>
+      <li><a href="index.html#contact">Contato</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Começar Projeto →</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-badge"><div class="page-hero-dot"></div>O que fazemos</div>
+      <h1 class="page-hero-title">
+        Cada solução,<br/><span style="background:linear-gradient(135deg,#A855F7,#22D3EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">pensada para você</span>
+      </h1>
+      <p class="page-hero-sub">Não oferecemos serviços genéricos. Construímos soluções sob medida, alinhadas com os objetivos reais do seu negócio.</p>
+    </div>
+  </div>
+
+  <!-- SERVICES DETAILED -->
+  <div class="services-page">
+
+    <!-- 01 Desenvolvimento Web -->
+    <div class="service-full reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_01_web.jpg" alt="Desenvolvimento Web" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 01</div>
+        <h2 class="section-title">Desenvolvimento<br/><span class="accent">Web Profissional</span></h2>
+        <p class="section-desc">Criamos sites e portais web que convertem. Do design estratégico à codificação, entregamos experiências digitais que representam sua marca e vendem por você.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> Landing Pages de alta conversão com copywriting estratégico</li>
+          <li><span class="feat-check">✓</span> Sites institucionais com design exclusivo e responsivo</li>
+          <li><span class="feat-check">✓</span> Lojas virtuais (e-commerce) com checkout otimizado</li>
+          <li><span class="feat-check">✓</span> Portais e plataformas web complexas</li>
+          <li><span class="feat-check">✓</span> Otimização SEO técnico e velocidade (Core Web Vitals)</li>
+          <li><span class="feat-check">✓</span> Integração com APIs, CRMs e ferramentas de marketing</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=Desenvolvimento Web#contact" class="btn-primary">Quero um site →</a>
+          <a href="clientes.html" class="btn-secondary">Ver projetos</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Apps Mobile -->
+    <div class="service-full reverse reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_02_mobile.jpg" alt="Apps Mobile" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 02</div>
+        <h2 class="section-title">Aplicativos<br/><span class="accent">Mobile</span></h2>
+        <p class="section-desc">Da ideia ao deployment nas lojas — criamos apps iOS e Android que encantam usuários, retêm clientes e escalam com o seu negócio.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> Apps híbridos (React Native / Flutter) para iOS e Android</li>
+          <li><span class="feat-check">✓</span> UX/UI design mobile-first que converte e fideliza</li>
+          <li><span class="feat-check">✓</span> Publicação e aprovação nas lojas (App Store e Google Play)</li>
+          <li><span class="feat-check">✓</span> Backend e APIs escaláveis (Node.js, Firebase, Supabase)</li>
+          <li><span class="feat-check">✓</span> Push notifications, analytics e crash reporting</li>
+          <li><span class="feat-check">✓</span> Manutenção e atualizações contínuas</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=App Mobile#contact" class="btn-primary">Quero um App →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Design & Identidade -->
+    <div class="service-full reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_07_design.jpg" alt="Design e Identidade Visual" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 03</div>
+        <h2 class="section-title">Design &<br/><span class="accent">Identidade</span></h2>
+        <p class="section-desc">Design que comunica e encanta. Uma equipe especializada para criar identidades visuais marcantes, interfaces modernas e artes criativas que elevam o padrão do seu negócio.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> Identidade visual completa (Logotipo, Tipografia, Cores)</li>
+          <li><span class="feat-check">✓</span> UI/UX Design para sites, apps e sistemas</li>
+          <li><span class="feat-check">✓</span> Criação de artes para redes sociais e anúncios (Social Media)</li>
+          <li><span class="feat-check">✓</span> Apresentações institucionais e pitch decks</li>
+          <li><span class="feat-check">✓</span> Design de interfaces (Figma, Adobe XD)</li>
+          <li><span class="feat-check">✓</span> Materiais ricos e banners digitais</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=Design & Identidade Visual#contact" class="btn-primary">Quero renovar meu design →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Sistemas Sob Medida -->
+    <div class="service-full reverse reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_03_systems.jpg" alt="Sistemas Sob Medida" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 04</div>
+        <h2 class="section-title">Sistemas<br/><span class="accent">Sob Medida</span></h2>
+        <p class="section-desc">Quando um software pronto não resolve, criamos o seu. Sistemas que automatizam processos, centralizam operações e economizam tempo e dinheiro.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> ERPs personalizados para gestão empresarial completa</li>
+          <li><span class="feat-check">✓</span> CRMs de vendas com funil e pipeline visual</li>
+          <li><span class="feat-check">✓</span> Automações de processos (RPA e workflows)</li>
+          <li><span class="feat-check">✓</span> Dashboards e painéis de Business Intelligence</li>
+          <li><span class="feat-check">✓</span> Integrações com sistemas legados e APIs externas</li>
+          <li><span class="feat-check">✓</span> Infraestrutura em nuvem com alta disponibilidade</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=Sistema Sob Medida#contact" class="btn-primary">Quero um Sistema →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Marketing Digital -->
+    <div class="service-full reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_04_marketing.jpg" alt="Marketing Digital" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 05</div>
+        <h2 class="section-title">Marketing<br/><span class="accent">Digital</span></h2>
+        <p class="section-desc">Mais do que anúncios — criamos ecossistemas completos de aquisição de clientes. Tráfego qualificado, conteúdo estratégico e conversão otimizada.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> Gestão de tráfego pago (Meta, Google, TikTok) com ROAS garantido</li>
+          <li><span class="feat-check">✓</span> SEO técnico e de conteúdo para tráfego orgânico duradouro</li>
+          <li><span class="feat-check">✓</span> Produção de conteúdo para redes sociais (posts, reels, stories)</li>
+          <li><span class="feat-check">✓</span> Email marketing e automação de nutrição de leads</li>
+          <li><span class="feat-check">✓</span> Relatórios semanais com métricas e otimizações</li>
+          <li><span class="feat-check">✓</span> Estratégia de funil completo do topo ao fechamento</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=Marketing Digital#contact" class="btn-primary">Quero mais vendas →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Estratégia de Vendas -->
+    <div class="service-full reverse reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_05_sales.jpg" alt="Estratégia de Vendas" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 06</div>
+        <h2 class="section-title">Estratégia<br/><span class="accent">de Vendas</span></h2>
+        <p class="section-desc">Sua tecnologia precisa vender. Estruturamos todo o processo comercial — do primeiro contato ao fechamento — para maximizar sua taxa de conversão.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> Mapeamento e otimização do funil de vendas completo</li>
+          <li><span class="feat-check">✓</span> Criação de scripts de vendas e playbooks comerciais</li>
+          <li><span class="feat-check">✓</span> Configuração e treinamento em CRM (HubSpot, Pipedrive etc.)</li>
+          <li><span class="feat-check">✓</span> Automações de follow-up via WhatsApp, email e SMS</li>
+          <li><span class="feat-check">✓</span> Treinamento e capacitação de equipes de vendas</li>
+          <li><span class="feat-check">✓</span> Definição de metas, KPIs e dashboards de performance</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=Marketing Digital#contact" class="btn-primary">Quero vender mais →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 Consultoria Tech -->
+    <div class="service-full reveal">
+      <div class="service-visual">
+        <img src="assets/images/services/service_06_consulting.jpg" alt="Consultoria Tech" class="service-visual-box" style="padding:0; object-fit:cover; display:block; width:100%; max-width:440px; height:auto; aspect-ratio:1/1; margin:0 auto;"/>
+      </div>
+      <div class="service-text">
+        <div class="section-label"><div class="section-label-line"></div>Serviço 07</div>
+        <h2 class="section-title">Consultoria<br/><span class="accent">Tech</span></h2>
+        <p class="section-desc">Para empresas que querem acelerar sua transformação digital. Avaliamos seu momento atual e traçamos o caminho mais eficiente para chegar onde você quer ir.</p>
+        <ul class="service-features">
+          <li><span class="feat-check">✓</span> Diagnóstico tecnológico completo do seu negócio</li>
+          <li><span class="feat-check">✓</span> Definição de arquitetura e stack tecnológica ideal</li>
+          <li><span class="feat-check">✓</span> Squads de desenvolvimento dedicados e ágeis</li>
+          <li><span class="feat-check">✓</span> Roadmap de produto e priorização de features</li>
+          <li><span class="feat-check">✓</span> Mentoria para times de TI e product managers</li>
+          <li><span class="feat-check">✓</span> Revisão de código, performance e segurança</li>
+        </ul>
+        <div class="service-cta-row">
+          <a href="index.html?service=Consultoria#contact" class="btn-primary">Quero consultoria →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PACKAGES -->
+    <div class="packages-section reveal">
+      <div class="section-label"><div class="section-label-line"></div>Pacotes</div>
+      <h2 class="section-title">Escolha o pacote<br/><span class="accent">ideal para você</span></h2>
+      <div class="packages-grid">
+        <div class="pkg-card reveal reveal-delay-1">
+          <div class="pkg-name">Starter</div>
+          <div class="pkg-desc">Para quem está começando e precisa de presença digital profissional</div>
+          <ul class="pkg-features">
+            <li><span class="pkg-check">✓</span> Landing Page profissional</li>
+            <li><span class="pkg-check">✓</span> Identidade visual básica</li>
+            <li><span class="pkg-check">✓</span> Configuração de redes sociais</li>
+            <li><span class="pkg-check">✓</span> 30 dias de suporte</li>
+          </ul>
+          <div style="margin-top:28px"><a href="index.html#contact" class="btn-secondary" style="font-size:0.85rem;padding:12px 24px">Solicitar →</a></div>
+        </div>
+        <div class="pkg-card featured reveal reveal-delay-2">
+          <div class="pkg-badge">Mais popular</div>
+          <div class="pkg-name">Growth</div>
+          <div class="pkg-desc">Para negócios que querem crescer com tecnologia e marketing integrados</div>
+          <ul class="pkg-features">
+            <li><span class="pkg-check">✓</span> Site completo + SEO</li>
+            <li><span class="pkg-check">✓</span> Gestão de tráfego pago</li>
+            <li><span class="pkg-check">✓</span> CRM e automações</li>
+            <li><span class="pkg-check">✓</span> Relatórios mensais</li>
+            <li><span class="pkg-check">✓</span> Suporte prioritário</li>
+          </ul>
+          <div style="margin-top:28px"><a href="index.html?service=Pacote Completo#contact" class="btn-primary" style="font-size:0.85rem;padding:12px 24px">Solicitar →</a></div>
+        </div>
+        <div class="pkg-card reveal reveal-delay-3">
+          <div class="pkg-name">Enterprise</div>
+          <div class="pkg-desc">Para empresas que precisam de solução completa e squad dedicado</div>
+          <ul class="pkg-features">
+            <li><span class="pkg-check">✓</span> Sistema ou App sob medida</li>
+            <li><span class="pkg-check">✓</span> Marketing digital completo</li>
+            <li><span class="pkg-check">✓</span> Squad dedicado (dev + design + marketing)</li>
+            <li><span class="pkg-check">✓</span> SLA garantido</li>
+            <li><span class="pkg-check">✓</span> Consultoria mensal</li>
+          </ul>
+          <div style="margin-top:28px"><a href="index.html#contact" class="btn-secondary" style="font-size:0.85rem;padding:12px 24px">Solicitar →</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/images/logo2type.jpeg" alt="2Type Logo" style="width:36px; height:36px; border-radius:50%; object-fit:cover;"/>
+          <span class="nav-logo-text">2<span>Type</span></span>
+        </a>
+        <p>Tecnologia e marketing digital que transforma negócios e gera resultados reais.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/2typeofc/" target="_blank" class="social-btn" title="Instagram">📸</a><a href="#" class="social-btn">💼</a>
+          <a href="https://wa.me/5512987005369" class="social-btn">💬</a><a href="#" class="social-btn">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Páginas</h4><ul><li><a href="index.html">Início</a></li><li><a href="historia.html">Nossa História</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="clientes.html">Clientes</a></li></ul></div>
+      <div class="footer-col"><h4>Serviços</h4><ul><li><a href="index.html#services">Desenvolvimento Web</a></li><li><a href="index.html#services">Apps Mobile</a></li><li><a href="index.html#services">Design & Identidade</a></li><li><a href="index.html#services">Sistemas</a></li><li><a href="index.html#services">Marketing Digital</a></li><li><a href="index.html#services">Consultoria</a></li></ul></div>
+      <div class="footer-col"><h4>Contato</h4><ul><li><a href="mailto:2typetecnologia@gmail.com">2typetecnologia@gmail.com</a></li><li><a href="https://wa.me/5512987005369">(12) 98700-5369</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 <span>2Type</span>. Todos os direitos reservados.</p><p style="font-size:0.75rem">Feito com 💜 pela própria 2Type</p></div>
+  </footer>
+
+  <script>
+    const cursor=document.getElementById('cursor'),follower=document.getElementById('cursor-follower');
+    let mX=0,mY=0,fX=0,fY=0;
+    document.addEventListener('mousemove',e=>{mX=e.clientX;mY=e.clientY;cursor.style.left=mX+'px';cursor.style.top=mY+'px'});
+    (function anim(){fX+=(mX-fX)*0.12;fY+=(mY-fY)*0.12;follower.style.left=fX+'px';follower.style.top=fY+'px';requestAnimationFrame(anim)})();
+    document.querySelectorAll('a,button,.pkg-card').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2)';follower.style.borderColor='rgba(168,85,247,0.8)'});
+      el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';follower.style.borderColor='rgba(168,85,247,0.5)'});
+    });
+    window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
+    const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+  </script>
+</body>
+</html>

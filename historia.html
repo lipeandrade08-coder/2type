@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Primary Meta Tags -->
+  <title>Nossa História | Quem Somos | 2Type</title>
+  <meta name="title" content="Nossa História | Quem Somos | 2Type" />
+  <meta name="description" content="Conheça a história da 2Type — como nascemos, nossos valores e nosso propósito de transformar negócios com tecnologia real e acessível." />
+  <meta name="keywords" content="sobre a 2type, história da 2type, quem somos, agência de tecnologia, valores, propósito" />
+  <meta name="author" content="2Type" />
+  <link rel="canonical" href="https://www.twotype.com/historia.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.twotype.com/historia.html" />
+  <meta property="og:title" content="Nossa História | 2Type" />
+  <meta property="og:description" content="Conheça nossa trajetória e veja por que somos movidos a transformar negócios com tecnologia." />
+  <meta property="og:image" content="https://www.twotype.com/assets/images/og_image_2type.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+  <style>
+    .history-page{max-width:1200px;margin:0 auto;padding:80px 60px 120px}
+
+    /* Origin story */
+    .origin-section{
+      display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+      padding:80px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .origin-text .section-desc{max-width:100%}
+    .origin-text blockquote{
+      border-left:3px solid var(--purple-bright);
+      padding:20px 24px;
+      background:rgba(107,33,168,0.1);
+      border-radius:0 16px 16px 0;
+      margin:28px 0;
+      font-style:italic;
+      color:rgba(255,255,255,0.8);
+      font-size:1.05rem;line-height:1.7;
+    }
+    .origin-visual{position:relative;display:flex;align-items:center;justify-content:center}
+    .origin-card{
+      background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+      border-radius:28px;padding:48px;text-align:center;position:relative;overflow:hidden;
+      width:100%;
+    }
+    .origin-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,33,168,0.2) 0%,transparent 60%)}
+    .origin-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-core))}
+    .origin-year{font-family:var(--font-main);font-size:6rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:1}
+    .origin-year-label{font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);position:relative;z-index:1;margin-top:4px}
+    .origin-founding{font-family:var(--font-main);font-size:1.1rem;font-weight:700;color:rgba(255,255,255,0.9);position:relative;z-index:1;margin-top:20px}
+    .origin-founding span{color:var(--purple-light)}
+
+    /* Mission/Vision/Values */
+    .mvv-section{padding:80px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .mvv-header{text-align:center;margin-bottom:60px}
+    .mvv-header .section-desc{max-width:560px;margin:16px auto 0;text-align:center}
+    .mvv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .mvv-card{
+      background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+      border-radius:24px;padding:36px 28px;position:relative;overflow:hidden;
+      transition:all 0.4s;cursor:none;
+    }
+    .mvv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-core));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+    .mvv-card:hover{border-color:rgba(168,85,247,0.3);transform:translateY(-6px)}
+    .mvv-card:hover::after{transform:scaleX(1)}
+    .mvv-icon{font-size:2.5rem;margin-bottom:20px;line-height:1}
+    .mvv-title{font-family:var(--font-main);font-weight:800;font-size:1.2rem;margin-bottom:14px}
+    .mvv-desc{color:rgba(255,255,255,0.55);font-size:0.9rem;line-height:1.7}
+
+    /* Timeline */
+    .timeline-section{padding:80px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .timeline-header{text-align:center;margin-bottom:60px}
+    .timeline{position:relative;max-width:800px;margin:0 auto}
+    .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--purple-vivid),var(--teal-core),transparent);transform:translateX(-50%)}
+    .timeline-item{display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:start;margin-bottom:48px;position:relative}
+    .timeline-item:nth-child(odd) .tl-content{grid-column:1;text-align:right}
+    .timeline-item:nth-child(odd) .tl-empty{grid-column:3}
+    .timeline-item:nth-child(even) .tl-content{grid-column:3;text-align:left}
+    .timeline-item:nth-child(even) .tl-empty{grid-column:1}
+    .tl-dot{
+      grid-column:2;width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,var(--purple-vivid),var(--teal-core));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;font-size:0.75rem;font-family:var(--font-main);
+      flex-shrink:0;position:relative;z-index:2;
+      box-shadow:0 0 20px rgba(107,33,168,0.5);
+      transition:transform 0.3s,box-shadow 0.3s;cursor:none;
+    }
+    .timeline-item:hover .tl-dot{transform:scale(1.15);box-shadow:0 0 30px rgba(107,33,168,0.8)}
+    .tl-year{font-family:var(--font-main);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:var(--purple-bright);text-transform:uppercase;margin-bottom:6px}
+    .tl-title{font-family:var(--font-main);font-weight:700;font-size:1rem;margin-bottom:8px}
+    .tl-desc{color:rgba(255,255,255,0.5);font-size:0.875rem;line-height:1.6}
+
+    /* Values */
+    .values-section{padding:80px 0}
+    .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+    .value-card{
+      background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+      border-radius:20px;padding:28px 20px;text-align:center;
+      transition:all 0.3s;cursor:none;
+    }
+    .value-card:hover{border-color:rgba(168,85,247,0.3);background:rgba(107,33,168,0.1);transform:translateY(-4px)}
+    .value-icon{font-size:2rem;margin-bottom:14px}
+    .value-title{font-family:var(--font-main);font-weight:700;font-size:0.95rem;margin-bottom:8px}
+    .value-desc{color:rgba(255,255,255,0.45);font-size:0.8rem;line-height:1.5}
+
+    /* Team intro */
+    .team-section{
+      padding:80px 0;border-top:1px solid rgba(255,255,255,0.06);
+      text-align:center;
+    }
+    .team-desc{max-width:600px;margin:16px auto 48px;color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.8}
+
+    .team-highlight{
+      display:inline-flex;align-items:center;gap:10px;
+      background:rgba(107,33,168,0.15);border:1px solid rgba(168,85,247,0.2);
+      padding:12px 24px;border-radius:100px;
+      font-size:0.9rem;color:rgba(255,255,255,0.8);
+      font-weight:600;margin-bottom:40px;
+    }
+
+    /* CTA bottom */
+    .history-cta{
+      text-align:center;padding:80px;
+      background:rgba(107,33,168,0.06);
+      border:1px solid rgba(168,85,247,0.1);
+      border-radius:32px;position:relative;overflow:hidden;
+      margin-top:40px;
+    }
+    .history-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(107,33,168,0.2) 0%,transparent 70%)}
+    .history-cta-inner{position:relative;z-index:2}
+    .history-cta h2{font-family:var(--font-main);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px}
+    .history-cta p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.8;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
+    .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+    @media(max-width:1024px){.origin-section{grid-template-columns:1fr;gap:40px}.mvv-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      .history-page{padding:40px 16px 80px}
+      .timeline::before{left:22px;transform:none}
+      .timeline-item{grid-template-columns:auto 1fr;gap:20px}
+      .timeline-item .tl-dot{grid-column:1;grid-row:1}
+      .timeline-item:nth-child(odd) .tl-content,.timeline-item:nth-child(even) .tl-content{grid-column:2;text-align:left}
+      .timeline-item .tl-empty{display:none}
+      .values-grid{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding-bottom:24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+      .values-grid::-webkit-scrollbar{display:none}
+      .value-card{scroll-snap-align:center;flex:0 0 85%;max-width:85%}
+      .history-cta{padding:48px 24px}
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo2type.jpeg" alt="2Type Logo" style="width:44px; height:44px; border-radius:50%; object-fit:cover;"/>
+      <span class="nav-logo-text">2<span>Type</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="historia.html" class="active">Nossa História</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="index.html#marketing">Marketing</a></li>
+      <li><a href="index.html#contact">Contato</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Começar Projeto →</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-glow"></div>
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-badge"><div class="page-hero-dot"></div>Nossa Trajetória</div>
+      <h1 class="page-hero-title">
+        A história de quem<br/><span style="background:linear-gradient(135deg,#A855F7,#22D3EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">acredita no digital</span>
+      </h1>
+      <p class="page-hero-sub">Nascemos de uma insatisfação com o mercado e de uma certeza: tecnologia e marketing de verdade transformam negócios de verdade.</p>
+    </div>
+  </div>
+
+  <div class="history-page">
+
+    <!-- ORIGIN -->
+    <div class="origin-section">
+      <div class="origin-text reveal">
+        <div class="section-label"><div class="section-label-line"></div>Como tudo começou</div>
+        <h2 class="section-title">Nascemos da<br/><span class="accent">necessidade real</span></h2>
+        <p class="section-desc">A 2Type nasceu de uma realidade que muitos empreendedores conhecem bem: buscar uma agência ou empresa de tecnologia e encontrar promessas vazias, prazos perdidos e resultados mediocres.</p>
+        <blockquote>
+          "Não queríamos ser mais uma empresa de tecnologia. Queríamos ser a empresa que as pessoas PRECISAVAM que existisse — que realmente entende do seu negócio."
+        </blockquote>
+        <p class="section-desc">Foi com essa mentalidade que a 2Type foi fundada. A missão era simples e ao mesmo tempo ambiciosa: unir tecnologia de ponta com estratégia de negócios real, entregando resultados que vão além de um site bonito ou um anúncio bem feito.</p>
+        <p class="section-desc" style="margin-top:14px">O nome <strong style="color:var(--purple-light)">2Type</strong> representa exatamente isso — a dualidade entre <strong style="color:var(--purple-light)">tecnologia</strong> e <strong style="color:var(--teal-vivid)">estratégia</strong>, entre <strong style="color:var(--purple-light)">criação</strong> e <strong style="color:var(--teal-vivid)">resultado</strong>, entre o digital e o humano.</p>
+      </div>
+      <div class="origin-visual reveal reveal-delay-2">
+        <div class="origin-card">
+          <div class="origin-year">2026</div>
+          <div class="origin-year-label">Ano de Fundação</div>
+          <div class="origin-founding">Fundada no Vale do Paraíba,<br/><span>São Paulo — Brasil</span></div>
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;position:relative;z-index:1">
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border-radius:12px;padding:12px 16px">
+              <span style="font-size:1.2rem">🎯</span>
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7)">Missão: Transformar negócios com tecnologia</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border-radius:12px;padding:12px 16px">
+              <span style="font-size:1.2rem">🌎</span>
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7)">Atuação: Brasil e América Latina</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.04);border-radius:12px;padding:12px 16px">
+              <span style="font-size:1.2rem">🚀</span>
+              <span style="font-size:0.85rem;color:rgba(255,255,255,0.7)">+50 projetos entregues com excelência</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION VISION VALUES -->
+    <div class="mvv-section">
+      <div class="mvv-header reveal">
+        <div class="section-label" style="justify-content:center"><div class="section-label-line"></div>Propósito<div class="section-label-line"></div></div>
+        <h2 class="section-title">O que nos move<br/><span class="accent">todos os dias</span></h2>
+        <p class="section-desc">Mais do que uma empresa, somos um time com propósito.</p>
+      </div>
+      <div class="mvv-grid">
+        <div class="mvv-card reveal reveal-delay-1">
+          <div class="mvv-icon">🎯</div>
+          <div class="mvv-title">Nossa Missão</div>
+          <div class="mvv-desc">Entregar soluções tecnológicas e de marketing digital que gerem impacto real e mensurável nos negócios de nossos clientes — com transparência, comprometimento e excelência técnica.</div>
+        </div>
+        <div class="mvv-card reveal reveal-delay-2">
+          <div class="mvv-icon">🔭</div>
+          <div class="mvv-title">Nossa Visão</div>
+          <div class="mvv-desc">Ser a referência em tecnologia e marketing digital para pequenas e médias empresas do Brasil, reconhecida pela qualidade das entregas, pelos resultados dos clientes e pela inovação constante.</div>
+        </div>
+        <div class="mvv-card reveal reveal-delay-3">
+          <div class="mvv-icon">💎</div>
+          <div class="mvv-title">Nosso Propósito</div>
+          <div class="mvv-desc">Democratizar o acesso à tecnologia de qualidade. Acreditamos que toda empresa — independente do tamanho — merece soluções digitais profissionais que a ajudem a crescer e competir.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline-section">
+      <div class="timeline-header reveal">
+        <div class="section-label" style="justify-content:center"><div class="section-label-line"></div>Nossa Jornada<div class="section-label-line"></div></div>
+        <h2 class="section-title">De onde viemos até<br/><span class="accent">onde chegamos</span></h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="tl-content">
+            <div class="tl-year">Janeiro 2026</div>
+            <div class="tl-title">A Ideia</div>
+            <div class="tl-desc">A 2Type nasce de uma frustração e de um sonho. Identificamos que o mercado precisava de tecnologia de ponta atrelada a resultados reais. A missão estava clara desde o dia 1.</div>
+          </div>
+          <div class="tl-dot">01</div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="tl-empty"></div>
+          <div class="tl-dot">03</div>
+          <div class="tl-content">
+            <div class="tl-year">Março 2026</div>
+            <div class="tl-title">O Começo</div>
+            <div class="tl-desc">Primeiro escritório, primeiros projetos rodando. Começamos a entregar landing pages de alta conversão e estruturar as primeiras estratégias de marketing digital.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-content">
+            <div class="tl-year">Maio 2026</div>
+            <div class="tl-title">Primeiros Parceiros</div>
+            <div class="tl-desc">Consolidamos nossos primeiros parceiros ativos e lançamos os serviços de apps mobile e sistemas sob medida. A equipe começou a crescer.</div>
+          </div>
+          <div class="tl-dot">05</div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="tl-empty"></div>
+          <div class="tl-dot">✦</div>
+          <div class="tl-content">
+            <div class="tl-year">Agosto 2026 — Hoje</div>
+            <div class="tl-title">Crescimento Rápido</div>
+            <div class="tl-desc">Nova identidade e mais de 30 clientes ativos. A 2Type segue evoluindo rapidamente para entregar o melhor da tecnologia e do marketing para os negócios do Brasil.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div class="values-section">
+      <div class="reveal">
+        <div class="section-label"><div class="section-label-line"></div>O que acreditamos</div>
+        <h2 class="section-title">Valores que guiam<br/><span class="accent">cada entrega</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🔥</div>
+          <div class="value-title">Comprometimento</div>
+          <div class="value-desc">O seu projeto é o nosso projeto. Nos envolvemos de verdade com cada entrega, como se fosse o nosso próprio negócio.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">💬</div>
+          <div class="value-title">Transparência</div>
+          <div class="value-desc">Comunicação clara, prazos reais e honestidade em todas as etapas. Sem enrolação, sem promessas impossíveis.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">🚀</div>
+          <div class="value-title">Inovação</div>
+          <div class="value-desc">Sempre buscamos as melhores e mais modernas soluções. Tecnologia evolui rápido — e a gente acompanha.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-4">
+          <div class="value-icon">📊</div>
+          <div class="value-title">Resultados</div>
+          <div class="value-desc">Não entregamos só código ou anúncios. Entregamos resultados mensuráveis: leads, vendas, eficiência e crescimento.</div>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">Parceria</div>
+          <div class="value-desc">Cada cliente vira um parceiro de longo prazo. Crescemos juntos — seu sucesso é o nosso maior case.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🎓</div>
+          <div class="value-title">Educação</div>
+          <div class="value-desc">Acreditamos em capacitar nossos clientes. Não geramos dependência — geramos autonomia e conhecimento.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">⚡</div>
+          <div class="value-title">Agilidade</div>
+          <div class="value-desc">Metodologias ágeis e comunicação rápida. Prazos cumpridos e respostas em horas, não em dias.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">💜</div>
+          <div class="value-title">Paixão</div>
+          <div class="value-desc">Amamos o que fazemos. E isso faz toda a diferença no nível de cuidado e atenção que colocamos em cada projeto.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <div class="team-section reveal">
+      <div class="section-label" style="justify-content:center"><div class="section-label-line"></div>Nossa Equipe<div class="section-label-line"></div></div>
+      <h2 class="section-title">Pessoas por trás<br/><span class="accent">da tecnologia</span></h2>
+      <p class="team-desc">A 2Type é formada por um time multidisciplinar apaixonado: desenvolvedores, designers, especialistas em marketing, estrategistas de vendas e consultores de negócios — todos unidos por um propósito.</p>
+      <div class="team-highlight">
+        <span>💜</span>
+        <span>Um time que se importa com o SEU resultado, não apenas com o próprio serviço</span>
+      </div>
+      <div class="cta-btns">
+        <a href="index.html#contact" class="btn-primary">Falar com o time →</a>
+        <a href="clientes.html" class="btn-secondary">Ver clientes</a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="history-cta reveal">
+      <div class="history-cta-inner">
+        <div class="section-label" style="justify-content:center;margin-bottom:20px"><div class="section-label-line"></div>Escreva o próximo capítulo<div class="section-label-line"></div></div>
+        <h2>Faça parte da<br/><span style="background:linear-gradient(135deg,#A855F7,#22D3EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">nossa história</span></h2>
+        <p>Cada cliente que chega na 2Type vira parte da nossa trajetória. Vamos escrever juntos o próximo capítulo do seu negócio?</p>
+        <div class="cta-btns">
+          <a href="index.html#contact" class="btn-primary">Começar agora →</a>
+          <a href="https://wa.me/5512987005369" class="btn-secondary">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/images/logo2type.jpeg" alt="2Type Logo" style="width:36px; height:36px; border-radius:50%; object-fit:cover;"/>
+          <span class="nav-logo-text">2<span>Type</span></span>
+        </a>
+        <p>Tecnologia e marketing digital que transforma negócios e gera resultados reais.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/2typeofc/" target="_blank" class="social-btn" title="Instagram">📸</a><a href="#" class="social-btn">💼</a>
+          <a href="https://wa.me/5512987005369" class="social-btn">💬</a><a href="#" class="social-btn">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Páginas</h4><ul><li><a href="index.html">Início</a></li><li><a href="historia.html">Nossa História</a></li><li><a href="servicos.html">Serviços</a></li><li><a href="clientes.html">Clientes</a></li></ul></div>
+      <div class="footer-col"><h4>Serviços</h4><ul><li><a href="servicos.html">Desenvolvimento Web</a></li><li><a href="servicos.html">Apps Mobile</a></li><li><a href="servicos.html">Marketing Digital</a></li><li><a href="servicos.html">Consultoria</a></li></ul></div>
+      <div class="footer-col"><h4>Contato</h4><ul><li><a href="mailto:2typetecnologia@gmail.com">2typetecnologia@gmail.com</a></li><li><a href="https://wa.me/5512987005369">(12) 98700-5369</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 <span>2Type</span>. Todos os direitos reservados.</p><p style="font-size:0.75rem">Feito com 💜 pela própria 2Type</p></div>
+  </footer>
+
+  <script>
+    const cursor=document.getElementById('cursor'),follower=document.getElementById('cursor-follower');
+    let mX=0,mY=0,fX=0,fY=0;
+    document.addEventListener('mousemove',e=>{mX=e.clientX;mY=e.clientY;cursor.style.left=mX+'px';cursor.style.top=mY+'px'});
+    (function anim(){fX+=(mX-fX)*0.12;fY+=(mY-fY)*0.12;follower.style.left=fX+'px';follower.style.top=fY+'px';requestAnimationFrame(anim)})();
+    document.querySelectorAll('a,button,.mvv-card,.value-card,.timeline-item').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2)';follower.style.borderColor='rgba(168,85,247,0.8)'});
+      el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';follower.style.borderColor='rgba(168,85,247,0.5)'});
+    });
+    window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
+    const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+  </script>
+</body>
+</html>
