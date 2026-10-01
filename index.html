@@ -736,8 +736,11 @@
           <div class="form-group"><label for="company">Empresa</label><input type="text" name="Empresa" id="company" placeholder="Nome da empresa" /></div>
         </div>
         <div class="form-group"><label for="email">E-mail</label><input type="email" name="Email" id="email" placeholder="seu@email.com" required /></div>
-        <div class="form-group"><label for="service">Serviço de interesse</label><select name="Serviço" id="service"><option value="">Selecione um serviço</option><option value="Desenvolvimento Web">Desenvolvimento Web</option><option value="App Mobile">App Mobile</option><option value="Design & Identidade Visual">Design & Identidade Visual</option><option value="Sistema Sob Medida">Sistema Sob Medida</option><option value="Marketing Digital">Marketing Digital</option><option value="Consultoria">Consultoria</option><option value="Pacote Completo">Pacote Completo</option></select></div>
-        <div class="form-group"><label for="message">Mensagem</label><textarea name="Mensagem" id="message" placeholder="Conte sobre seu projeto..."></textarea></div>
+        <div class="form-row">
+          <div class="form-group"><label for="service">Serviço de interesse</label><select name="Serviço" id="service"><option value="">Selecione um serviço</option><option value="Desenvolvimento Web">Desenvolvimento Web</option><option value="App Mobile">App Mobile</option><option value="Design & Identidade Visual">Design & Identidade Visual</option><option value="Sistema Sob Medida">Sistema Sob Medida</option><option value="Marketing Digital">Marketing Digital</option><option value="Consultoria">Consultoria</option><option value="Pacote Completo">Pacote Completo</option></select></div>
+          <div class="form-group"><label for="source">Onde nos conheceu?</label><select name="Origem" id="source" required><option value="">Selecione uma opção</option><option value="Instagram">Instagram</option><option value="LinkedIn">LinkedIn</option><option value="Indicação">Indicação</option><option value="Pesquisa no Google">Pesquisa no Google</option><option value="Outros">Outros</option></select></div>
+        </div>
+        <div class="form-group"><label for="message">Mensagem / Detalhes do Projeto</label><textarea name="Mensagem" id="message" placeholder="Conte mais sobre sua ideia ou desafio atual..." required></textarea></div>
         <button type="submit" class="form-submit" id="submit-btn">Enviar Mensagem →</button>
       </form>
     </div>

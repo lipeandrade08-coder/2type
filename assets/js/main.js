@@ -164,14 +164,20 @@ function handleFormSubmit(e){
     const empresa = document.getElementById('company').value;
     const email = document.getElementById('email').value;
     const servico = document.getElementById('service').value;
+    const origem = document.getElementById('source').value;
     const mensagem = document.getElementById('message').value;
 
-    let texto = `Olá, gostaria de solicitar um orçamento!\n\n`;
-    texto += `*Nome:* ${nome}\n`;
-    if(empresa) texto += `*Empresa:* ${empresa}\n`;
-    texto += `*E-mail:* ${email}\n`;
-    if(servico) texto += `*Serviço:* ${servico}\n`;
-    if(mensagem) texto += `*Mensagem:* ${mensagem}\n`;
+    let texto = `*NOVO PROJETO RECEBIDO!* 🚀\n\n`;
+    texto += `Olá, 2Type! Meu nome é *${nome}* e gostaria de conversar sobre um projeto.\n\n`;
+    texto += `*📋 Detalhes do Contato:*\n`;
+    if(empresa) texto += `🏢 *Empresa:* ${empresa}\n`;
+    texto += `📧 *E-mail:* ${email}\n`;
+    texto += `📍 *Conheceu por:* ${origem}\n\n`;
+    
+    if(servico) texto += `*🎯 Serviço de Interesse:*\n${servico}\n\n`;
+    
+    texto += `*📝 Detalhes do Projeto / Mensagem:*\n"${mensagem}"\n\n`;
+    texto += `Aguardo o retorno de vocês!`;
 
     const zapLink = `https://api.whatsapp.com/send?phone=5512987005369&text=${encodeURIComponent(texto)}`;
 
