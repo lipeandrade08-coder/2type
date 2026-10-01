@@ -84,7 +84,7 @@
     .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
     .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    #hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-bottom:60px}
     .hero-grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;animation:gridShift 20s linear infinite; mask-image: radial-gradient(circle, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%)}
     @keyframes gridShift{from{transform:translateY(0)}to{transform:translateY(60px)}}
     .hero-glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
@@ -94,10 +94,12 @@
     @keyframes glowFloat1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.1)}}
     @keyframes glowFloat2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,-20px) scale(1.05)}}
     @keyframes glowFloat3{0%,100%{transform:translateY(0);opacity:0.6}50%{transform:translateY(-20px);opacity:1}}
-    .hero-container{position:relative;z-index:10;max-width:1200px;width:100%;margin:0 auto;padding:120px 60px 0;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-container{position:relative;z-index:10;max-width:900px;width:100%;margin:0 auto;padding:120px 60px 80px;display:flex;flex-direction:column;align-items:flex-start;gap:0}
     .hero-content{text-align:left}
+    .hero-image-glow{display:none}
     .hero-image-wrap{position:relative;display:flex;justify-content:flex-end;animation:fadeInUp 1s 0.6s var(--ease-smooth) both}
-    .hero-media{width:100%;max-width:560px;border-radius:50%;box-shadow:0 0 80px rgba(168,85,247,0.5);object-fit:cover;aspect-ratio:1/1;border: 2px solid rgba(168,85,247,0.3)}
+    .hero-media{display:none}
+    .hero-image-wrap{display:none}
     .hero-image-glow{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(6,182,212,0.2) 0%,transparent 70%);border-radius:50%;z-index:-1;animation:pulse 4s infinite}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);padding:8px 20px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:28px;backdrop-filter:blur(10px);animation:fadeInUp 0.8s var(--ease-smooth) both}
     .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--teal-vivid);animation:pulse 2s infinite}
@@ -177,6 +179,11 @@
     .step-num{font-family:var(--font-main);font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .step-title{font-family:var(--font-main);font-weight:700;font-size:1rem;margin-bottom:10px}
     .step-desc{color:rgba(255,255,255,0.5);font-size:0.85rem;line-height:1.6}
+    /* Carousel dots */
+    .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+    .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(168,85,247,0.25);border:1px solid rgba(168,85,247,0.4);transition:all 0.3s var(--ease-smooth);cursor:pointer}
+    .carousel-dot.active{background:var(--purple-bright);box-shadow:0 0 10px var(--purple-bright),0 0 20px rgba(168,85,247,0.5);width:20px;border-radius:4px}
+    .carousel-dots-wrap{display:none}
     #marketing{position:relative;overflow:hidden;padding:120px 60px}
     .marketing-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,33,168,0.15) 0%,rgba(6,182,212,0.05) 100%)}
     .marketing-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
@@ -282,17 +289,16 @@
       .nav-links li:last-child{border-bottom:none;margin-top:24px}
       .nav-cta{display:inline-block!important;width:100%;text-align:center;padding:14px 24px!important;border-radius:16px!important}
 
-      /* Hero mobile */
-      #hero{min-height:100svh;padding-top:0}
-      .hero-container{grid-template-columns:1fr;padding:100px 24px 60px;gap:32px;text-align:center}
+      /* Hero mobile — single column, no video */
+      #hero{min-height:100svh;padding-top:0;padding-bottom:40px}
+      .hero-container{flex-direction:column;padding:100px 24px 40px;gap:0;text-align:center;align-items:center}
       .hero-content{text-align:center}
+      .hero-image-wrap,.hero-media{display:none!important}
       .hero-badge{font-size:0.65rem;padding:6px 14px}
       .hero-title{font-size:clamp(1.9rem,8.5vw,2.8rem);margin-bottom:16px}
       .hero-subtitle{font-size:0.95rem;margin:0 auto 32px;max-width:90%}
       .hero-buttons{flex-direction:column;align-items:center;gap:12px;width:100%}
       .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:14px 24px}
-      .hero-image-wrap{justify-content:center;order:-1}
-      .hero-media{max-width:240px;max-height:240px}
       .hero-scroll{display:none}
 
       /* Sections */
@@ -347,21 +353,28 @@
       .stat-item{padding:28px 16px;background:rgba(107,33,168,0.06)}
       .stat-item:not(:last-child){border-right:1px solid rgba(168,85,247,0.1)}
       .stats-inner .stat-item:nth-child(3){grid-column:1/-1;border-top:1px solid rgba(168,85,247,0.1);border-right:none!important}
+      /* Process steps — numbered vertical timeline on mobile */
       .process-steps{
         display:flex!important;flex-direction:column;gap:0;overflow:visible
       }
+      .process-steps::before{display:none}
       .process-step{
-        display:grid;grid-template-columns:60px 1fr;gap:16px;
-        text-align:left;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.05)
+        display:grid;grid-template-columns:64px 1fr;align-items:start;gap:16px;
+        text-align:left;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06)
       }
       .process-step:last-child{border-bottom:none}
-      .step-number-wrap{margin-bottom:0}
-      .step-circle{width:56px;height:56px}
-      .step-num{font-size:1.2rem}
+      .step-number-wrap{display:flex;justify-content:center;padding-top:4px;margin-bottom:0}
+      .step-circle{width:52px;height:52px}
+      .step-num{font-size:1.1rem}
+      .step-title{font-size:0.95rem}
+      .step-desc{font-size:0.82rem}
+      /* Carousel dots visible on mobile */
+      .carousel-dots-wrap{display:flex;justify-content:center;padding-top:8px}
+      /* Testimonials carousel */
       .testimonials-grid{
         display:flex!important;flex-wrap:nowrap;overflow-x:auto;
         scroll-snap-type:x mandatory;gap:14px!important;
-        padding:4px 20px 28px;margin:0 -20px;
+        padding:4px 0 16px 20px;margin:0 -20px;
         -webkit-overflow-scrolling:touch;scrollbar-width:none
       }
       .testimonials-grid::-webkit-scrollbar{display:none}
@@ -559,6 +572,17 @@
         <div class="service-card reveal reveal-delay-4"><div class="service-number">05</div><div class="service-icon">📈</div><div class="service-title">Marketing Digital</div><p class="service-desc">Gestão de tráfego pago (Meta Ads, Google Ads), estratégias de conteúdo e campanhas que geram leads e vendas reais.</p><a href="servicos.html" class="service-link" data-service="Marketing Digital">Saiba mais →</a></div>
         <div class="service-card reveal reveal-delay-5"><div class="service-number">06</div><div class="service-icon">🎯</div><div class="service-title">Estratégia de Vendas</div><p class="service-desc">Consultoria completa em funis de vendas, copywriting, automações de CRM e treinamento de equipes comerciais.</p><a href="servicos.html" class="service-link" data-service="Marketing Digital">Saiba mais →</a></div>
         <div class="service-card reveal reveal-delay-1"><div class="service-number">07</div><div class="service-icon">💡</div><div class="service-title">Consultoria Tech</div><p class="service-desc">Diagnóstico tecnológico, arquitetura de soluções, squads dedicados e mentoria para acelerar a transformação digital.</p><a href="servicos.html" class="service-link" data-service="Consultoria">Saiba mais →</a></div>
+        </div>
+        <div class="carousel-dots-wrap" id="services-dots">
+          <div class="carousel-dots">
+            <div class="carousel-dot active" data-index="0"></div>
+            <div class="carousel-dot" data-index="1"></div>
+            <div class="carousel-dot" data-index="2"></div>
+            <div class="carousel-dot" data-index="3"></div>
+            <div class="carousel-dot" data-index="4"></div>
+            <div class="carousel-dot" data-index="5"></div>
+            <div class="carousel-dot" data-index="6"></div>
+          </div>
         </div>
       </div>
   </div>

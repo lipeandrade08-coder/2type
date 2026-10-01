@@ -45,7 +45,34 @@ window.addEventListener('load', () => {
             grabCursor: true
         });
     }
+
+    // CAROUSEL DOT INDICATORS
+    function initCarouselDots(gridSelector, dotsWrapId) {
+        const grid = document.querySelector(gridSelector);
+        const dotsWrap = document.getElementById(dotsWrapId);
+        if (!grid || !dotsWrap) return;
+        const dots = dotsWrap.querySelectorAll('.carousel-dot');
+        if (!dots.length) return;
+
+        grid.addEventListener('scroll', () => {
+            const cardWidth = grid.querySelector('.service-card, .testimonial-card')?.offsetWidth || 1;
+            const gap = 14;
+            const index = Math.round(grid.scrollLeft / (cardWidth + gap));
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }, { passive: true });
+
+        // Click on dot scrolls to that card
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const cardWidth = grid.querySelector('.service-card, .testimonial-card')?.offsetWidth || 1;
+                grid.scrollTo({ left: i * (cardWidth + 14), behavior: 'smooth' });
+            });
+        });
+    }
+
+    initCarouselDots('.services-grid', 'services-dots');
 });
+
 
 // PRELOADER
 window.addEventListener('load', () => {
