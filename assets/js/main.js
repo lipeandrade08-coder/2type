@@ -1,4 +1,37 @@
-// SWIPER INIT
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger-btn');
+const navLinks = document.querySelector('.nav-links');
+const navOverlay = document.getElementById('nav-overlay');
+
+function closeMenu() {
+    hamburger && hamburger.classList.remove('open');
+    navLinks && navLinks.classList.remove('open');
+    navOverlay && navOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.contains('open');
+        if (isOpen) {
+            closeMenu();
+        } else {
+            hamburger.classList.add('open');
+            navLinks.classList.add('open');
+            navOverlay && navOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+}
+
+// Close menu on overlay click
+navOverlay && navOverlay.addEventListener('click', closeMenu);
+
+// Close menu when a nav link is clicked
+navLinks && navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+});
+
 window.addEventListener('load', () => {
     if (typeof Swiper !== 'undefined') {
         new Swiper('.testimonials-swiper', {
@@ -23,27 +56,7 @@ window.addEventListener('load', () => {
 });
 
 
-// TSPARTICLES BACKGROUND
-if (typeof tsParticles !== 'undefined') {
-    tsParticles.load("tsparticles", {
-        background: { color: { value: "transparent" } },
-        fpsLimit: 60,
-        interactivity: {
-            events: { onHover: { enable: true, mode: "grab" }, resize: true },
-            modes: { grab: { distance: 150, links: { opacity: 0.5 } } }
-        },
-        particles: {
-            color: { value: ["#8B2FC9", "#06B6D4"] },
-            links: { color: "#8B2FC9", distance: 150, enable: true, opacity: 0.2, width: 1 },
-            move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, outModes: "out" },
-            number: { density: { enable: true, area: 800 }, value: 60 },
-            opacity: { value: 0.5 },
-            shape: { type: "circle" },
-            size: { value: { min: 1, max: 3 } }
-        },
-        detectRetina: true,
-    });
-}
+// TSPARTICLES BACKGROUND REMOVIDO PARA PERFORMANCE
 
 // MAGNETIC BUTTONS
 document.addEventListener('DOMContentLoaded', () => {
@@ -62,40 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// CURSOR
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursor-follower');
-if(cursor && follower) {
-    let mX=0, mY=0, fX=0, fY=0;
-    document.addEventListener('mousemove', e => {
-        mX = e.clientX; 
-        mY = e.clientY; 
-        cursor.style.left = mX + 'px'; 
-        cursor.style.top = mY + 'px';
-    });
-    
-    (function anim(){
-        fX += (mX - fX) * 0.12; 
-        fY += (mY - fY) * 0.12; 
-        follower.style.left = fX + 'px'; 
-        follower.style.top = fY + 'px'; 
-        requestAnimationFrame(anim);
-    })();
-    
-    const hoverElements = document.querySelectorAll('a, button, .service-card, .mini-card, .testimonial-card, .process-step, .about-video-box');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%,-50%) scale(2)'; 
-            follower.style.transform = 'translate(-50%,-50%) scale(1.5)'; 
-            follower.style.borderColor = 'rgba(168,85,247,0.8)';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%,-50%) scale(1)'; 
-            follower.style.transform = 'translate(-50%,-50%) scale(1)'; 
-            follower.style.borderColor = 'rgba(168,85,247,0.5)';
-        });
-    });
-}
+// CURSOR REMOVIDO PARA PERFORMANCE
 
 // NAVBAR
 const navbar = document.getElementById('navbar');
@@ -105,72 +85,7 @@ if(navbar) {
     });
 }
 
-// PARTICLES
-const canvas = document.getElementById('particles-canvas');
-if(canvas) {
-    const ctx = canvas.getContext('2d');
-    let W, H, particles = [];
-    function resize(){ W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
-    resize(); 
-    window.addEventListener('resize', resize);
-    
-    const palette = ['rgba(107,33,168,', 'rgba(168,85,247,', 'rgba(6,182,212,', 'rgba(34,211,238,'];
-    class P {
-        reset() {
-            this.x = Math.random() * W;
-            this.y = Math.random() * H;
-            this.vx = (Math.random() - .5) * .4;
-            this.vy = (Math.random() - .5) * .4;
-            this.r = Math.random() * 1.8 + .5;
-            this.life = 1;
-            this.decay = Math.random() * .003 + .001;
-            this.c = palette[Math.floor(Math.random() * 4)];
-        }
-        constructor(){ this.reset(); }
-        update() {
-            this.x += this.vx; this.y += this.vy; this.life -= this.decay;
-            if(this.life <= 0 || this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-        }
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-            ctx.fillStyle = this.c + this.life + ')';
-            ctx.fill();
-        }
-    }
-    for(let i=0; i<200; i++) particles.push(new P());
-    
-    let mpX = 0, mpY = 0;
-    canvas.addEventListener('mousemove', e => { mpX = e.clientX; mpY = e.clientY; });
-    
-    (function loop(){
-        ctx.clearRect(0,0,W,H);
-        particles.forEach(p => {
-            const dx = p.x - mpX, dy = p.y - mpY, d = Math.sqrt(dx*dx + dy*dy);
-            if(d < 100) {
-                p.vx += (dx/d) * .05; p.vy += (dy/d) * .05;
-                const s = Math.sqrt(p.vx*p.vx + p.vy*p.vy);
-                if(s > 2){ p.vx = p.vx/s*2; p.vy = p.vy/s*2; }
-            }
-            p.update(); p.draw();
-        });
-        
-        for(let i=0; i<particles.length; i++) {
-            for(let j=i+1; j<particles.length; j++){
-                const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, d = Math.sqrt(dx*dx + dy*dy);
-                if(d < 120) {
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = 'rgba(107,33,168,' + (1 - d/120) * .15 * particles[i].life + ')';
-                    ctx.lineWidth = .5;
-                    ctx.stroke();
-                }
-            }
-        }
-        requestAnimationFrame(loop);
-    })();
-}
+// PARTICLES REMOVIDO PARA PERFORMANCE
 
 // SCROLL REVEAL
 const obs = new IntersectionObserver(entries => {
@@ -298,15 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// HAMBURGER MENU
-const hamburger = document.getElementById('hamburger-btn');
-const navLinks = document.querySelector('.nav-links');
-if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('open');
-    });
-}
+
 
 // ROI CALCULATOR
 const clientsRange = document.getElementById('clientsRange');
