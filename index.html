@@ -97,13 +97,15 @@
     .hero-container{position:relative;z-index:10;max-width:1200px;width:100%;margin:0 auto;padding:120px 60px 80px;display:grid;grid-template-columns:1.2fr 0.8fr;align-items:center;gap:40px}
     .hero-content{text-align:left}
     .hero-image-wrap{position:relative;display:flex;justify-content:center;animation:fadeInUp 1s 0.6s var(--ease-smooth) both;perspective:1000px}
-    .macos-mockup{width:100%;max-width:480px;background:#151515;border-radius:12px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.05);position:relative;z-index:2;transform:rotateY(-5deg) rotateX(2deg);transition:transform 0.4s ease}
+    .macos-mockup{width:100%;max-width:480px;background:#1e1e1e;border-radius:14px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.2), 0 0 40px rgba(168,85,247,0.3);position:relative;z-index:2;transform:rotateY(-5deg) rotateX(2deg);transition:transform 0.4s ease}
     .macos-mockup:hover{transform:rotateY(0) rotateX(0)}
-    .macos-header{background:#2a2a2a;height:32px;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
-    .macos-dot{width:12px;height:12px;border-radius:50%}
-    .macos-dot.close{background:#ff5f56}
-    .macos-dot.minimize{background:#ffbd2e}
-    .macos-dot.expand{background:#27c93f}
+    .macos-header{background:linear-gradient(to bottom, #4a4a4a, #2b2b2b);height:38px;display:flex;align-items:center;padding:0 14px;border-bottom:1px solid #111;position:relative;justify-content:center}
+    .macos-dots{display:flex;gap:8px;position:absolute;left:14px}
+    .macos-dot{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 1px 1px rgba(255,255,255,0.4), 0 1px 2px rgba(0,0,0,0.4)}
+    .macos-dot.close{background:#ff5f56;border:1px solid #e0443e}
+    .macos-dot.minimize{background:#ffbd2e;border:1px solid #dea123}
+    .macos-dot.expand{background:#27c93f;border:1px solid #1aab29}
+    .macos-title{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;font-size:13px;color:#d1d1d6;font-weight:600;letter-spacing:0.3px}
     .hero-media{display:block;width:100%;height:auto}
     .hero-image-glow{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(6,182,212,0.2) 0%,transparent 70%);border-radius:50%;z-index:-1;animation:pulse 4s infinite;display:block}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);padding:8px 20px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:28px;backdrop-filter:blur(10px);animation:fadeInUp 0.8s var(--ease-smooth) both}
@@ -498,9 +500,12 @@
         <div class="hero-image-glow"></div>
         <div class="macos-mockup">
           <div class="macos-header">
-            <span class="macos-dot close"></span>
-            <span class="macos-dot minimize"></span>
-            <span class="macos-dot expand"></span>
+            <div class="macos-dots">
+              <span class="macos-dot close"></span>
+              <span class="macos-dot minimize"></span>
+              <span class="macos-dot expand"></span>
+            </div>
+            <div class="macos-title">2Type_Preview.mp4</div>
           </div>
           <video autoplay loop muted playsinline class="hero-media">
             <source src="assets/video/hero_opt.webm" type="video/webm">
