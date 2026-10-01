@@ -170,10 +170,11 @@
     #process{max-width:1200px;margin:0 auto;padding:120px 60px}
     .process-header{text-align:center;margin-bottom:80px}
     .process-header .section-desc{margin:16px auto 0;text-align:center}
-    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-    .process-steps::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--purple-vivid),var(--teal-core),transparent)}
-    .process-step{text-align:center;padding:0 20px;position:relative}
-    .step-number-wrap{position:relative;display:inline-flex;margin-bottom:28px}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+    .process-steps::before{display:none}
+    .process-step{text-align:center;padding:40px 24px;position:relative;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:24px;transition:all 0.4s var(--ease-smooth);cursor:none}
+    .process-step:hover{border-color:rgba(168,85,247,0.3);transform:translateY(-8px);background:rgba(107,33,168,0.08)}
+    .step-number-wrap{position:relative;display:flex;justify-content:center;margin-bottom:28px}
     .step-circle{width:80px;height:80px;background:var(--purple-dark);border:2px solid rgba(168,85,247,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all 0.4s var(--ease-smooth);cursor:none}
     .process-step:hover .step-circle{border-color:var(--purple-bright);background:rgba(107,33,168,0.3);box-shadow:0 0 30px rgba(168,85,247,0.3)}
     .step-num{font-family:var(--font-main);font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--purple-bright),var(--teal-vivid));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -355,15 +356,17 @@
       .stats-inner .stat-item:nth-child(3){grid-column:1/-1;border-top:1px solid rgba(168,85,247,0.1);border-right:none!important}
       /* Process steps — numbered vertical timeline on mobile */
       .process-steps{
-        display:flex!important;flex-direction:column;gap:0;overflow:visible
+        display:flex!important;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;
+        scroll-snap-type:x mandatory;gap:14px!important;
+        padding:4px 0 16px 20px;margin:0 -20px;
+        -webkit-overflow-scrolling:touch;scrollbar-width:none
       }
-      .process-steps::before{display:none}
+      .process-steps::-webkit-scrollbar{display:none}
       .process-step{
-        display:grid;grid-template-columns:64px 1fr;align-items:start;gap:16px;
-        text-align:left;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.06)
+        scroll-snap-align:start;flex:0 0 82%;min-width:260px;
+        display:block;text-align:center;padding:32px 24px;
       }
-      .process-step:last-child{border-bottom:none}
-      .step-number-wrap{display:flex;justify-content:center;padding-top:4px;margin-bottom:0}
+      .step-number-wrap{display:flex;justify-content:center;margin-bottom:20px}
       .step-circle{width:52px;height:52px}
       .step-num{font-size:1.1rem}
       .step-title{font-size:0.95rem}
@@ -615,11 +618,23 @@
       <h2 class="section-title reveal reveal-delay-1">Um processo pensado<br/><span class="accent">para entregar resultados</span></h2>
       <p class="section-desc reveal reveal-delay-2">Da primeira conversa à entrega — metodologia clara, comunicação transparente e foco total no seu sucesso.</p>
     </div>
-    <div class="process-steps">
-      <div class="process-step reveal"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">01</span></div></div><div class="step-title">Descoberta</div><p class="step-desc">Entendemos seu negócio, objetivos, público e mercado para criar a estratégia certa.</p></div>
-      <div class="process-step reveal reveal-delay-1"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">02</span></div></div><div class="step-title">Estratégia</div><p class="step-desc">Planejamos a arquitetura da solução, fluxos e tecnologias mais adequadas ao seu caso.</p></div>
-      <div class="process-step reveal reveal-delay-2"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">03</span></div></div><div class="step-title">Execução</div><p class="step-desc">Desenvolvemos com sprints, entregas contínuas e revisões colaborativas com sua equipe.</p></div>
-      <div class="process-step reveal reveal-delay-3"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">04</span></div></div><div class="step-title">Crescimento</div><p class="step-desc">Monitoramos métricas, otimizamos continuamente e escalamos junto com seu negócio.</p></div>
+    
+    <div class="scroll-wrap">
+      <div class="swipe-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Deslize para ver mais</div>
+      <div class="process-steps">
+        <div class="process-step reveal"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">01</span></div></div><div class="step-title">Descoberta</div><p class="step-desc">Entendemos seu negócio, objetivos, público e mercado para criar a estratégia certa.</p></div>
+        <div class="process-step reveal reveal-delay-1"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">02</span></div></div><div class="step-title">Estratégia</div><p class="step-desc">Planejamos a arquitetura da solução, fluxos e tecnologias mais adequadas ao seu caso.</p></div>
+        <div class="process-step reveal reveal-delay-2"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">03</span></div></div><div class="step-title">Execução</div><p class="step-desc">Desenvolvemos com sprints, entregas contínuas e revisões colaborativas com sua equipe.</p></div>
+        <div class="process-step reveal reveal-delay-3"><div class="step-number-wrap"><div class="step-circle"><span class="step-num">04</span></div></div><div class="step-title">Crescimento</div><p class="step-desc">Monitoramos métricas, otimizamos continuamente e escalamos junto com seu negócio.</p></div>
+      </div>
+      <div class="carousel-dots-wrap" id="process-dots">
+        <div class="carousel-dots">
+          <div class="carousel-dot active" data-index="0"></div>
+          <div class="carousel-dot" data-index="1"></div>
+          <div class="carousel-dot" data-index="2"></div>
+          <div class="carousel-dot" data-index="3"></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -746,7 +761,7 @@
       </div>
       <div class="footer-col"><h4>Serviços</h4><ul><li><a href="#services">Desenvolvimento Web</a></li><li><a href="#services">Apps Mobile</a></li><li><a href="#services">Design & Identidade</a></li><li><a href="#services">Sistemas</a></li><li><a href="#services">Marketing Digital</a></li><li><a href="#services">Consultoria</a></li></ul></div>
       <div class="footer-col"><h4>Empresa</h4><ul><li><a href="#about">Sobre nós</a></li><li><a href="#process">Como trabalhamos</a></li><li><a href="#testimonials">Depoimentos</a></li><li><a href="#contact">Contato</a></li></ul></div>
-      <div class="footer-col"><h4>Contato</h4><ul><li><a href="mailto:2typetecnologia@gmail.com">2typetecnologia@gmail.com</a></li><li><a href="https://wa.me/5512987005369">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4>Contato</h4><ul><li><a href="mailto:2typetecnologia@gmail.com">2typetecnologia@gmail.com</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>© 2026 <span>2Type</span>. Todos os direitos reservados.</p><p style="font-size:0.75rem">Feito com 💜 pela própria 2Type</p></div>
   </footer>

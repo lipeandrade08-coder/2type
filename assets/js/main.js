@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
         if (!dots.length) return;
 
         grid.addEventListener('scroll', () => {
-            const cardWidth = grid.querySelector('.service-card, .testimonial-card')?.offsetWidth || 1;
+            const cardWidth = grid.querySelector('.service-card, .testimonial-card, .process-step')?.offsetWidth || 1;
             const gap = 14;
             const index = Math.round(grid.scrollLeft / (cardWidth + gap));
             dots.forEach((d, i) => d.classList.toggle('active', i === index));
@@ -64,13 +64,14 @@ window.addEventListener('load', () => {
         // Click on dot scrolls to that card
         dots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
-                const cardWidth = grid.querySelector('.service-card, .testimonial-card')?.offsetWidth || 1;
+                const cardWidth = grid.querySelector('.service-card, .testimonial-card, .process-step')?.offsetWidth || 1;
                 grid.scrollTo({ left: i * (cardWidth + 14), behavior: 'smooth' });
             });
         });
     }
 
     initCarouselDots('.services-grid', 'services-dots');
+    initCarouselDots('.process-steps', 'process-dots');
 });
 
 
